@@ -25,6 +25,22 @@ npm run dev
 npm run dev -- --open
 ```
 
+### Component format
+
+1. export creates a component prop
+2. Assignments are 'reactive'
+3. $: marks a statement as reactive
+4. Prefix stores with $ to access their values
+
+### Store contract
+
+### <script context="module">
+
+### <style>
+
+1. CSS inside a <style> block will be scoped to that component.
+2. To apply styles to a selector globally, use the :global(...) modifier.
+
 ## Building
 
 To create a production version of your app:
