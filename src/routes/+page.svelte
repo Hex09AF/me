@@ -1,14 +1,22 @@
 <script>
-	import { BrandYoutube } from 'tabler-icons-svelte';
+	import Fresh from '../assets/fresh.png';
 </script>
 
-<div class="p-4 hero-container flex flex-col justify-center items-center">
-	<p class="my-4">
-		I can't think of anything more rewarding than being able to express yourself to others through
-		painting. In nature, dead trees are just as normal as live trees. We don't really know where
-		this goes - and I'm not sure we really care.
-	</p>
-	<a href="https://www.google.com/" class="btn variant-filled-primary btn-base">
-		Sign up with YouTube <BrandYoutube class="ml-1" size={36} strokeWidth={1} />
-	</a>
-</div>
+<section class="grid grid-cols-5 grid-rows-3">
+	<div class="row-start-1 row-span-3 col-start-1 col-span-5 header-right">
+		<div class="fresh-mind">
+			<img src={Fresh} alt="fresh" />
+		</div>
+	</div>
+	<div class="row-start-1 row-end-2 col-start-1 col-span-2 header-left flex items-center">
+		<h1 class="header-main-line">
+			<span class="text-5xl block font-bold deep">YOU</span>
+			<span class="main-line text-6xl block font-bold">YEAH YOU</span>
+			<p class="block main-line">
+				<span class="text-3xl font-bold">I'm Hex</span>, a web developer from Vietnam
+			</p>
+			<p>Welcome to my base. Let's travel through this together, will ya.</p>
+		</h1>
+		<!-- Add some effect "you" like bear ears, colors text, there must be something that i like, i love, ... do it -->
+	</div>
+</section>
