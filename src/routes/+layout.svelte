@@ -2,7 +2,7 @@
 	import { AppBar, AppShell, LightSwitch } from '@skeletonlabs/skeleton';
 	import '@skeletonlabs/skeleton/styles/all.css';
 	import '@skeletonlabs/skeleton/themes/theme-crimson.css';
-	import '../app.css';
+	import '../app.postcss';
 </script>
 
 <AppShell>

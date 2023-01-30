@@ -1,8 +1,12 @@
 <script lang="ts">
-	import Fresh from '../assets/fresh.png';
+	import Matter from 'matter-js';
 	import { onMount } from 'svelte';
 	import { spring } from 'svelte/motion';
-	import Matter from 'matter-js';
+	import Fresh from '../assets/fresh.png';
+	import JSLogo from '../assets/tech/javascript.svg';
+	import ReactLogo from '../assets/tech/react.svg';
+	import ScssLogo from '../assets/tech/scss.svg';
+	import TSLogo from '../assets/tech/typescript.svg';
 	let info = spring(
 		{ rotate: -25 },
 		{
@@ -10,19 +14,33 @@
 			damping: 0.25
 		}
 	);
-	// info.set({ rotate: 25 });
-	// setTimeout(() => {
-	// 	info.set({ rotate: -25 });
-	// }, 100);
-	// setTimeout(() => {
-	// 	info.set({ rotate: 25 });
-	// }, 200);
+	const listTech = [
+		{
+			title: 'Sass/Scss',
+			img: ScssLogo
+		},
+		{
+			title: 'React',
+			img: ReactLogo
+		},
+		{
+			title: 'Javscript',
+			img: JSLogo
+		},
+		{
+			title: 'Typescript',
+			img: TSLogo
+		}
+	];
+
 	let cup: HTMLImageElement;
 	let container: HTMLDivElement;
 	onMount(() => {
 		// module aliases
 		const rectContainer = container.getBoundingClientRect();
-		const { width, height } = rectContainer;
+		let { width, height } = rectContainer;
+		width -= 32;
+		height -= 32;
 		const Engine = Matter.Engine,
 			Render = Matter.Render,
 			Runner = Matter.Runner,
@@ -39,30 +57,44 @@
 			element: container,
 			engine: engine,
 			options: {
-				width: width - 24,
-				height: height - 24,
+				width: width,
+				height: height,
+				pixelRatio: 1,
 				background: 'transparent',
 				wireframes: false
 			}
 		});
 
 		// create two boxes and a ground
-		const boxA = Bodies.rectangle(400, 200, 80, 80, {
+		const getTech = () => {
+			return listTech.map((tech) =>
+				Bodies.circle(400, 200, 30, {
+					render: {
+						sprite: {
+							texture: tech.img,
+							xScale: 0.3,
+							yScale: 0.3
+						}
+					}
+				})
+			);
+		};
+		const boundaryOptions = {
+			isStatic: true,
 			render: {
-				sprite: {
-					texture: 'https://static-cdn.jtvnw.net/emoticons/v1/301299185/2.0',
-					xScale: 1,
-					yScale: 1
-				}
+				fillStyle: 'transparent',
+				strokeStyle: 'transparent'
+			}
+		};
+		const ground = Bodies.rectangle(width / 2, height, width, 32, {
+			isStatic: true,
+			render: {
+				fillStyle: 'transparent',
+				strokeStyle: 'transparent'
 			}
 		});
-		const boxB = Bodies.rectangle(450, 50, 80, 80);
-		const boundaryOptions = {
-			isStatic: true
-		};
-		const ground = Bodies.rectangle(width / 2, height - 24, width, 8, boundaryOptions);
-		const leftWall = Bodies.rectangle(0, height / 2, 4, height, boundaryOptions);
-		const rightWall = Bodies.rectangle(width, height / 2, 4, height, boundaryOptions);
+		const leftWall = Bodies.rectangle(0, height / 2, 32, height, boundaryOptions);
+		const rightWall = Bodies.rectangle(width, height / 2, 32, height, boundaryOptions);
 
 		// add mouse control
 		var mouse = Mouse.create(render.canvas),
@@ -76,13 +108,17 @@
 				}
 			});
 
+		const eventMouseWheel = mouseConstraint.mouse.mousewheel;
+		mouseConstraint.mouse.element.removeEventListener('mousewheel', eventMouseWheel);
+		mouseConstraint.mouse.element.removeEventListener('DOMMouseScroll', eventMouseWheel);
+
 		Composite.add(engine.world, mouseConstraint);
 
 		// keep the mouse in sync with rendering
 		render.mouse = mouse;
 
 		// add all of the bodies to the world
-		Composite.add(engine.world, [boxA, boxB, leftWall, rightWall, ground]);
+		Composite.add(engine.world, [leftWall, rightWall, ground].concat(getTech()));
 
 		// run the renderer
 		Render.run(render);
@@ -127,6 +163,61 @@
 		<!-- Add some effect "you" like bear ears, colors text, there must be something that i like, i love, ... do it -->
 	</div>
 	<div class="row-start-2 col-start-1 col-span-2 header-bottom-left">
-		<div class="revert-text">Hello</div>
+		<div class="revert-text" />
 	</div>
 </section>
+
+<section class="grid grid-cols-2 gap-10 mt-10">
+	<h1>Selected case</h1>
+	<div>
+		<ul>
+			<li class="group relative weird">
+				<h2>Sudoku</h2>
+				<div class="btn-primary">
+					<img src={ReactLogo} alt="React" />
+					<img src={TSLogo} alt="Typescript" />
+					<img src={JSLogo} alt="Javscript" />
+				</div>
+				<div class="marquee">Remix Node React Prisma</div>
+			</li>
+			<li class="group relative weird">
+				<h2>Sudoku</h2>
+				<div class="btn-primary">
+					<img src={ReactLogo} alt="React" />
+					<img src={TSLogo} alt="Typescript" />
+					<img src={JSLogo} alt="Javscript" />
+				</div>
+				<div class="marquee">Remix Node React Prisma</div>
+			</li>
+			<li class="group relative weird">
+				<h2>Sudoku</h2>
+				<div class="btn-primary">
+					<img src={ReactLogo} alt="React" />
+					<img src={TSLogo} alt="Typescript" />
+					<img src={JSLogo} alt="Javscript" />
+				</div>
+				<div class="marquee">Remix Node React Prisma</div>
+			</li>
+			<li class="group relative weird">
+				<h2>Sudoku</h2>
+				<div class="btn-primary">
+					<img src={ReactLogo} alt="React" />
+					<img src={TSLogo} alt="Typescript" />
+					<img src={JSLogo} alt="Javscript" />
+				</div>
+				<div class="marquee">Remix Node React Prisma</div>
+			</li>
+			<li class="group relative weird">
+				<h2>Sudoku</h2>
+				<div class="btn-primary">
+					<img src={ReactLogo} alt="React" />
+					<img src={TSLogo} alt="Typescript" />
+					<img src={JSLogo} alt="Javscript" />
+				</div>
+				<div class="marquee">Remix Node React Prisma</div>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<section class="h-screen">Hello</section>
