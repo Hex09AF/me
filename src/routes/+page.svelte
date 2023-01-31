@@ -7,6 +7,7 @@
 	import ReactLogo from '../assets/tech/react.svg';
 	import ScssLogo from '../assets/tech/scss.svg';
 	import TSLogo from '../assets/tech/typescript.svg';
+	import ProjectCard from '../components/ProjectCard.svelte';
 	let info = spring(
 		{ rotate: -25 },
 		{
@@ -165,6 +166,39 @@
 	<div class="row-start-2 col-start-1 col-span-2 header-bottom-left">
 		<div class="revert-text" />
 	</div>
+	<div class="row-start-2 col-start-4 col-span-2 header-bottom-right">
+		<div class="revert-text" />
+	</div>
+	<div class="row-start-1 col-start-4 col-span-2 header-top-right">
+		<div class="revert-text" />
+	</div>
+</section>
+
+<section class="my-10">
+	<div class="wrap">
+		{#each [1, 2] as item, idx}
+			<div class="item">
+				<div class="wrap-item">
+					<div class="grid grid-cols-2 prose rounded-3xl overflow-hidden">
+						{#if idx % 2 === 0}
+							<ProjectCard />
+						{:else}
+							<div class="bg-red-400">
+								<h2>.</h2>
+							</div>
+						{/if}
+						{#if idx % 2 === 0}
+							<div class="bg-red-400">
+								<h2>.</h2>
+							</div>
+						{:else}
+							<ProjectCard />
+						{/if}
+					</div>
+				</div>
+			</div>
+		{/each}
+	</div>
 </section>
 
 <section class="grid grid-cols-2 gap-10 mt-10">
@@ -219,5 +253,3 @@
 		</ul>
 	</div>
 </section>
-
-<section class="h-screen">Hello</section>
