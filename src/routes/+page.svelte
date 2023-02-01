@@ -1,20 +1,42 @@
 <script lang="ts">
 	import Matter from 'matter-js';
 	import { onMount } from 'svelte';
-	import { spring } from 'svelte/motion';
-	import Fresh from '../assets/fresh.png';
 	import JSLogo from '../assets/tech/javascript.svg';
 	import ReactLogo from '../assets/tech/react.svg';
 	import ScssLogo from '../assets/tech/scss.svg';
 	import TSLogo from '../assets/tech/typescript.svg';
 	import ProjectCard from '../components/ProjectCard.svelte';
-	let info = spring(
-		{ rotate: -25 },
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+	const listProject = [
 		{
-			stiffness: 0.1,
-			damping: 0.25
+			title: 'Foodelive',
+			role: 'Frontend developer',
+			description:
+				"Whether you're ordering food for two or hosting a party for thousands people, you will always find the best menu and service that's right for you.",
+			bg: 'bg-red-500'
+		},
+		{
+			title: 'Devouch',
+			role: 'Frontend developer',
+			description: 'Spend wise time to get the voucher you deserve no matter where you are',
+			bg: 'bg-lime-500'
+		},
+		{
+			title: 'Sudoku',
+			role: 'Frontend developer',
+			description: 'Spend wise time to get the voucher you deserve no matter where you are',
+			bg: 'bg-teal-500'
+		},
+		{
+			title: 'ELearning',
+			role: 'Frontend developer',
+			description: 'Spend wise time to get the voucher you deserve no matter where you are',
+			bg: 'bg-sky-500'
 		}
-	);
+	];
+
 	const listTech = [
 		{
 			title: 'Sass/Scss',
@@ -33,11 +55,23 @@
 			img: TSLogo
 		}
 	];
-
-	let cup: HTMLImageElement;
 	let container: HTMLDivElement;
+	let card: HTMLDivElement;
 	onMount(() => {
-		// module aliases
+		gsap.registerPlugin(ScrollTrigger);
+
+		gsap.to('.content-item', {
+			scrollTrigger: {
+				scroller: '#page',
+				trigger: '.content-item',
+				start: 'top center',
+				markers: true,
+				toggleActions: 'restart pause reverse pause'
+			},
+			x: 400,
+			duration: 3
+		});
+
 		const rectContainer = container.getBoundingClientRect();
 		let { width, height } = rectContainer;
 		width -= 32;
@@ -49,11 +83,7 @@
 			Composite = Matter.Composite,
 			Mouse = Matter.Mouse,
 			MouseConstraint = Matter.MouseConstraint;
-
-		// create an engine
 		const engine = Engine.create();
-
-		// create a renderer
 		const render = Render.create({
 			element: container,
 			engine: engine,
@@ -65,8 +95,6 @@
 				wireframes: false
 			}
 		});
-
-		// create two boxes and a ground
 		const getTech = () => {
 			return listTech.map((tech) =>
 				Bodies.circle(400, 200, 30, {
@@ -96,8 +124,6 @@
 		});
 		const leftWall = Bodies.rectangle(0, height / 2, 32, height, boundaryOptions);
 		const rightWall = Bodies.rectangle(width, height / 2, 32, height, boundaryOptions);
-
-		// add mouse control
 		var mouse = Mouse.create(render.canvas),
 			mouseConstraint = MouseConstraint.create(engine, {
 				mouse: mouse,
@@ -108,50 +134,20 @@
 					}
 				}
 			});
-
 		const eventMouseWheel = mouseConstraint.mouse.mousewheel;
 		mouseConstraint.mouse.element.removeEventListener('mousewheel', eventMouseWheel);
 		mouseConstraint.mouse.element.removeEventListener('DOMMouseScroll', eventMouseWheel);
-
 		Composite.add(engine.world, mouseConstraint);
-
-		// keep the mouse in sync with rendering
 		render.mouse = mouse;
-
-		// add all of the bodies to the world
 		Composite.add(engine.world, [leftWall, rightWall, ground].concat(getTech()));
-
-		// run the renderer
 		Render.run(render);
-
-		// create runner
 		const runner = Runner.create();
-
-		// run the engine
 		Runner.run(runner, engine);
-
-		const fn = (e: MouseEvent) => {
-			const rect = cup.getBoundingClientRect();
-			const absolute = {
-				x: e.clientX - rect.left
-			};
-			info.set({ rotate: (absolute.x * -25) / -rect.left });
-		};
-		window.addEventListener('mousemove', fn);
-		return () => window.removeEventListener('mousemove', fn);
 	});
-
-	$: dynamicStyles = `
-    --rotate: ${$info.rotate}deg;
-	`;
 </script>
 
 <section class="grid grid-cols-5 grid-rows-2 gap-10">
-	<div class="row-start-1 row-span-2 col-start-1 col-span-5 header-right" bind:this={container}>
-		<div class="fresh-mind">
-			<img bind:this={cup} style={dynamicStyles} src={Fresh} alt="fresh" />
-		</div>
-	</div>
+	<div class="row-start-1 row-span-2 col-start-1 col-span-5 header-right" bind:this={container} />
 	<div class="row-start-1 col-start-1 col-span-2 header-left flex items-center">
 		<h1 class="header-main-line revert-text">
 			<span class="text-5xl block font-bold deep">YOU</span>
@@ -175,30 +171,19 @@
 </section>
 
 <section class="my-10">
-	<div class="wrap">
-		{#each [1, 2] as item, idx}
-			<div class="item">
-				<div class="wrap-item">
-					<div class="grid grid-cols-2 prose rounded-3xl overflow-hidden">
-						{#if idx % 2 === 0}
-							<ProjectCard />
-						{:else}
-							<div class="bg-red-400">
-								<h2>.</h2>
-							</div>
-						{/if}
-						{#if idx % 2 === 0}
-							<div class="bg-red-400">
-								<h2>.</h2>
-							</div>
-						{:else}
-							<ProjectCard />
-						{/if}
-					</div>
-				</div>
+	{#each listProject as item, idx}
+		{@const isOdd = idx % 2 == 1}
+		<div
+			bind:this={card}
+			class:isOdd
+			class="content-item grid grid-cols-2 prose rounded-3xl overflow-hidden"
+		>
+			<div class:col-start-2={isOdd} class="row-start-1">
+				<ProjectCard title={item.title} role={item.role} description={item.description} />
 			</div>
-		{/each}
-	</div>
+			<div class:col-start-1={isOdd} class={`${item.bg} row-start-1`} />
+		</div>
+	{/each}
 </section>
 
 <section class="grid grid-cols-2 gap-10 mt-10">
@@ -253,3 +238,23 @@
 		</ul>
 	</div>
 </section>
+
+<style lang="postcss">
+	.content-item {
+		position: relative;
+	}
+	.content-item::before {
+		content: '';
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		height: 100%;
+		width: 2px;
+		background-color: black;
+		z-index: 10;
+	}
+	.content-item {
+		border: 2px solid black;
+		border-top: none;
+	}
+</style>
