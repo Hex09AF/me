@@ -9,26 +9,24 @@
 		.join(' • ');
 </script>
 
-<div style="height: 75vh; min-height: 400px" class="p-10 bg-white text-black isolate">
-	<div class="p-10">
-		<h2 class="text-7xl uppercase mb-2">{title}</h2>
-		<div class="text-2xl mb-2 mix-blend-difference text-white">
-			<div class="marquee absolute">
-				<div class="marquee-inner">
-					<span class="marquee-left"> {marqueeRole} {' • '}</span>
-					<span class="marquee-right"> {marqueeRole} {' • '}</span>
-				</div>
+<div class="p-10 bg-white text-black isolate">
+	<h2 class="text-7xl uppercase mb-2">{title}</h2>
+	<div class="text-2xl mb-2 mix-blend-difference text-white">
+		<div class="marquee absolute">
+			<div class="marquee-inner">
+				<span class="marquee-left"> {marqueeRole} {' • '}</span>
+				<span class="marquee-right"> {marqueeRole} {' • '}</span>
 			</div>
 		</div>
-		<p class="mb-12 mt-12">
-			{description}
-		</p>
-		<button class="btn variant-filled-primary btn-base btn-marquee">
-			<div class="btn-marquee-inner">
-				<span data-text="See the detail"> See the detail </span>
-			</div>
-		</button>
 	</div>
+	<p class="mb-6 mt-12">
+		{description}
+	</p>
+	<button class="btn variant-filled-primary btn-base btn-marquee">
+		<div class="btn-marquee-inner">
+			<span data-text="See the detail"> See the detail </span>
+		</div>
+	</button>
 </div>
 
 <style>
@@ -61,6 +59,7 @@
 
 	.marquee {
 		left: 0;
+		background: rgb(254 237 0 / 0.3);
 	}
 
 	.marquee .marquee-inner {
