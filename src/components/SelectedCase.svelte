@@ -69,6 +69,8 @@
 	});
 </script>
 
+<h1 class="text-center">Don't interested by the stream, here is other thing that you can look</h1>
+
 <section class="my-10">
 	{#each listProject as item, idx}
 		{@const isOdd = idx % 2 == 1}

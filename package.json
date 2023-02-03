@@ -36,6 +36,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@lottiefiles/lottie-interactivity": "^1.6.1",
+		"@lottiefiles/svelte-lottie-player": "^0.3.0",
 		"@types/matter-js": "^0.18.2",
 		"gsap": "^3.11.4",
 		"matter-js": "^0.18.0",

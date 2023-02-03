@@ -20,7 +20,7 @@
 
 <style lang="postcss">
 	.live-chat {
-		@apply col-start-9 col-span-4 bg-surface-500;
+		@apply col-start-9 col-span-4 bg-surface-500 rounded-xl border border-surface-500;
 
 		&__header {
 			@apply px-6 py-2;

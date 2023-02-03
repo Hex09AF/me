@@ -24,7 +24,7 @@
 		let nyanCat = document.getElementById('nyan-cat');
 		let currentFrame = 1;
 
-		replicateSparks(document.getElementsByClassName('sparks-combo')[0]);
+		// replicateSparks(document.getElementsByClassName('sparks-combo')[0]);
 
 		setInterval(function () {
 			currentFrame = (currentFrame % 6) + 1;
@@ -34,12 +34,12 @@
 </script>
 
 <section>
-	<div class="sparks-combo">
+	<!-- <div class="sparks-combo">
 		<div class="spark" />
 		<div class="spark" />
 		<div class="spark" />
 		<div class="spark" />
-	</div>
+	</div> -->
 
 	<div id="wave-a" class="hot rainbow" />
 	<div id="wave-a" class="cold rainbow" />
