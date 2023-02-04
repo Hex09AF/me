@@ -1,18 +1,16 @@
 <script lang="ts">
-	import { Avatar, RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
-	import type { Writable } from 'svelte/store';
-	import { writable } from 'svelte/store';
+	import { Avatar } from '@skeletonlabs/skeleton';
+	import Intro from './Intro/Intro.svelte';
 	import LottieLike from './LottieLike/LottieLike.svelte';
-	// import Nyan from './Nyan/Nyan.svelte';
-
-	const storeLayout: Writable<string> = writable('horz');
+	import Toolbar from './Media/Toolbar.svelte';
 </script>
 
 <div class="live-media">
 	<div class="live-media__container">
 		<div class="live-media__content w-full h-full relative">
+			<Intro />
 			<!-- <Nyan /> -->
-			<iframe
+			<!-- <iframe
 				title="anime mode"
 				src="https://giphy.com/embed/3Fn9rVGma1WiqycMoO"
 				width="100%"
@@ -20,8 +18,9 @@
 				frameBorder="0"
 				class="giphy-embed"
 				allowFullScreen
-			/>
+			/> -->
 		</div>
+		<Toolbar />
 	</div>
 	<div class="live-media__metadata mt-4">
 		<h4 class="live-media__title">lofi hip hop radio - beats to relax/study to</h4>
@@ -65,7 +64,7 @@
 		@apply col-start-1 col-span-8 h-full;
 
 		&__container {
-			@apply aspect-video;
+			@apply aspect-video relative;
 			max-width: 100%;
 			max-height: 100%;
 		}

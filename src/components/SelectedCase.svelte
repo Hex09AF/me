@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-	import Scrollbar from 'smooth-scrollbar';
+	// import Scrollbar from 'smooth-scrollbar';
 	import { onMount } from 'svelte';
 	import ProjectCard from './ProjectCard.svelte';
 
@@ -37,20 +37,22 @@
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
 		const scroller = document.querySelector('#page');
-		let bodyScrollBar = Scrollbar.init(scroller, {
-			damping: 0.1,
-			delegateTo: document,
-			alwaysShowTracks: true
-		});
-		ScrollTrigger.scrollerProxy('#page', {
-			scrollTop(value) {
-				if (arguments.length) {
-					bodyScrollBar.scrollTop = value;
-				}
-				return bodyScrollBar.scrollTop;
-			}
-		});
-		bodyScrollBar.addListener(ScrollTrigger.update);
+		// SMOOTH SCROLL
+
+		// let bodyScrollBar = Scrollbar.init(scroller, {
+		// 	damping: 0.1,
+		// 	delegateTo: document,
+		// 	alwaysShowTracks: true
+		// });
+		// ScrollTrigger.scrollerProxy('#page', {
+		// 	scrollTop(value) {
+		// 		if (arguments.length) {
+		// 			bodyScrollBar.scrollTop = value;
+		// 		}
+		// 		return bodyScrollBar.scrollTop;
+		// 	}
+		// });
+		// bodyScrollBar.addListener(ScrollTrigger.update);
 		ScrollTrigger.defaults({ scroller: scroller });
 		const eles = gsap.utils.toArray('.content-item');
 		eles.forEach((panel, i) => {

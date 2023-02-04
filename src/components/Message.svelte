@@ -20,7 +20,7 @@
 	}
 	.live-chat {
 		&__message {
-			@apply flex items-start py-1 px-6;
+			@apply flex items-start pt-2 pb-1 px-6;
 		}
 		&__content {
 			@apply self-center leading-4;
