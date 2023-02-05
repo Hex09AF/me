@@ -9,7 +9,7 @@
 		.join(' • ');
 </script>
 
-<div class="p-10 bg-white text-black isolate">
+<div class="p-10 bg-white text-black isolate min-h-[350px]">
 	<h2 class="text-7xl uppercase mb-2">{title}</h2>
 	<div class="text-2xl mb-2 mix-blend-difference text-white">
 		<div class="marquee absolute">

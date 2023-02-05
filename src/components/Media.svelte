@@ -1,24 +1,40 @@
 <script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
+	import { T } from '@threlte/core';
+	import { currentScence, SCENCE } from '../store/scence';
+	import Credit from './Credit/Credit.svelte';
 	import Intro from './Intro/Intro.svelte';
 	import LottieLike from './LottieLike/LottieLike.svelte';
 	import Toolbar from './Media/Toolbar.svelte';
+	import Nyan from './Nyan/Nyan.svelte';
+	import Tech from './Tech/Tech.svelte';
 </script>
 
 <div class="live-media">
 	<div class="live-media__container">
 		<div class="live-media__content w-full h-full relative">
-			<Intro />
-			<!-- <Nyan /> -->
-			<!-- <iframe
-				title="anime mode"
-				src="https://giphy.com/embed/3Fn9rVGma1WiqycMoO"
-				width="100%"
-				height="100%"
-				frameBorder="0"
-				class="giphy-embed"
-				allowFullScreen
-			/> -->
+			{#if $currentScence === SCENCE.INTRO}
+				<Intro />
+			{/if}
+			{#if $currentScence === SCENCE.TECH}
+				<Tech />
+			{/if}
+			{#if $currentScence === SCENCE.REST}
+				<Nyan />
+			{/if}
+			{#if $currentScence === SCENCE.ANIME}
+				<iframe
+					title="anime summer wars"
+					src="https://giphy.com/embed/3oz8xCoHgi4N5qlLYA"
+					width="100%"
+					height="100%"
+					frameBorder="0"
+					allowFullScreen
+				/>
+			{/if}
+			{#if $currentScence === SCENCE.CREDIT}
+				<Credit />
+			{/if}
 		</div>
 		<Toolbar />
 	</div>

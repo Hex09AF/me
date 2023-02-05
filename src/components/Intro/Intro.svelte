@@ -49,7 +49,10 @@
 	});
 </script>
 
-<div class="flex w-full h-full justify-between">
+<div class="flex w-full h-full justify-between relative">
+	<div class="absolute right-0 w-full h-full">
+		<Model />
+	</div>
 	<div class="flex items-center">
 		<h1 class="header-main-line revert-text">
 			<span class="text-5xl block font-bold deep">YOU</span>
@@ -59,9 +62,5 @@
 			</p>
 			<p>Welcome to my base. Let's travel through this together, will ya.</p>
 		</h1>
-	</div>
-
-	<div>
-		<Model />
 	</div>
 </div>
