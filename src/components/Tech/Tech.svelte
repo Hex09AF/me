@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { gsap } from 'gsap';
 	import Matter from 'matter-js';
 	import { onMount } from 'svelte';
 	import JSLogo from '../../assets/tech/javascript.svg';

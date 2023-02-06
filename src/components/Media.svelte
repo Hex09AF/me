@@ -77,7 +77,7 @@
 
 <style lang="postcss">
 	.live-media {
-		@apply col-start-1 col-span-8 h-full;
+		@apply flex-[2] h-full;
 
 		&__container {
 			@apply aspect-video relative;

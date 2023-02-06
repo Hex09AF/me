@@ -12,6 +12,6 @@
 
 <style lang="postcss">
 	.live-container {
-		@apply grid grid-cols-12 gap-12 items-stretch;
+		@apply flex flex-wrap gap-4;
 	}
 </style>
