@@ -11,25 +11,29 @@
 			role: 'Frontend developer',
 			description:
 				"Whether you're ordering food for two or hosting a party for thousands people, you will always find the best menu and service that's right for you.",
-			bg: 'bg-red-500'
+			bg: 'bg-red-500',
+			txt: 'text-red-400'
 		},
 		{
 			title: 'Devouch',
 			role: 'Frontend developer',
 			description: 'Spend wise time to get the voucher you deserve no matter where you are',
-			bg: 'bg-lime-500'
+			bg: 'bg-lime-500',
+			txt: 'text-lime-400'
 		},
 		{
 			title: 'Sudoku',
 			role: 'Frontend developer',
 			description: 'Spend wise time to get the voucher you deserve no matter where you are',
-			bg: 'bg-teal-500'
+			bg: 'bg-teal-500',
+			txt: 'text-teal-400'
 		},
 		{
 			title: 'ELearning',
 			role: 'Frontend developer',
 			description: 'Spend wise time to get the voucher you deserve no matter where you are',
-			bg: 'bg-sky-500'
+			bg: 'bg-sky-500',
+			txt: 'text-sky-400'
 		}
 	];
 
@@ -81,15 +85,71 @@
 			class:isOdd
 			class="content-item grid grid-cols-2 prose rounded-3xl overflow-hidden"
 		>
-			<div class:col-start-2={isOdd} class="row-start-1">
+			<div class:col-start-2={isOdd} class="row-start-1 relative">
 				<ProjectCard title={item.title} role={item.role} description={item.description} />
 			</div>
-			<div class:col-start-1={isOdd} class={`${item.bg} row-start-1`} />
+			<div class:col-start-1={isOdd} class={`${item.bg} row-start-1 relative`}>
+				<div class="special-grid">
+					<div class="number number-1">
+						<span>Authentication / Authorization</span>
+					</div>
+					<div class="number number-2">
+						<span>CMS</span>
+					</div>
+					<div class="number number-3">
+						<span>Client</span>
+					</div>
+					<div class="number number-4">
+						<span>Vendor</span>
+					</div>
+				</div>
+				<div
+					class={` absolute right-0 text-7xl bottom-0 rotate-180 font-black`}
+					style="writing-mode: vertical-rl;text-orientation: sideways;"
+				>
+					{item.title}
+				</div>
+			</div>
 		</div>
 	{/each}
 </section>
 
 <style lang="postcss">
+	.special-grid {
+		height: 100%;
+		transition: 500ms;
+		display: grid;
+		grid-template-rows: 1fr 1fr 1fr 1fr;
+
+		.number:first-child {
+			border-top: none;
+		}
+	}
+
+	:where(.number) {
+		@apply p-3;
+		transition: 300ms;
+		border-top: 2px dashed white;
+	}
+
+	:where(.number):hover {
+		@apply bg-white text-black;
+	}
+
+	.special-grid:has(.number-1:hover) {
+		grid-template-rows: 2.5fr 0.5fr 0.5fr 0.5fr;
+	}
+
+	.special-grid:has(.number-2:hover) {
+		grid-template-rows: 0.5fr 2.5fr 0.5fr 0.5fr;
+	}
+	.special-grid:has(.number-3:hover) {
+		grid-template-rows: 0.5fr 0.5fr 2.5fr 0.5fr;
+	}
+	.special-grid:has(.number-4:hover) {
+		grid-template-rows: 0.5fr 0.5fr 0.5fr 2.5fr;
+	}
+
 	.content-item {
 		position: relative;
 	}
