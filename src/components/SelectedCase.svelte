@@ -39,8 +39,6 @@
 
 	let card: HTMLDivElement;
 	onMount(() => {
-		gsap.registerPlugin(ScrollTrigger);
-		const scroller = document.querySelector('#page');
 		// SMOOTH SCROLL
 
 		// let bodyScrollBar = Scrollbar.init(scroller, {
@@ -57,25 +55,25 @@
 		// 	}
 		// });
 		// bodyScrollBar.addListener(ScrollTrigger.update);
-		ScrollTrigger.defaults({ scroller: scroller });
-		const eles = gsap.utils.toArray('.content-item');
-		eles.forEach((panel, i) => {
-			if (i != eles.length - 1) {
-				ScrollTrigger.create({
-					scroller: '#page',
-					trigger: panel,
-					start: '-=20px top',
-					end: '+=' + panel.offsetHeight * (eles.length - i - 1),
-					scrub: 1,
-					pin: true,
-					pinSpacing: false
-				});
-			}
-		});
+		// gsap.registerPlugin(ScrollTrigger);
+		// const scroller = document.querySelector('#page');
+		// ScrollTrigger.defaults({ scroller: scroller });
+		// const eles = gsap.utils.toArray('.content-item');
+		// eles.forEach((panel, i) => {
+		// 	if (i != eles.length - 1) {
+		// 		ScrollTrigger.create({
+		// 			scroller: '#page',
+		// 			trigger: panel,
+		// 			start: 'top top',
+		// 			end: '+=' + panel.offsetHeight * (eles.length - i - 1),
+		// 			scrub: 1,
+		// 			pin: true,
+		// 			pinSpacing: false
+		// 		});
+		// 	}
+		// });
 	});
 </script>
-
-<h1 class="text-center">Don't interested by the stream, here is other thing that you can look</h1>
 
 <section class="my-10">
 	{#each listProject as item, idx}
@@ -85,41 +83,49 @@
 			class:isOdd
 			class="content-item grid grid-cols-2 prose rounded-3xl overflow-hidden"
 		>
-			<div class:col-start-2={isOdd} class="row-start-1 relative">
+			<div class:col-start-2={isOdd} class="row-start-1">
 				<ProjectCard title={item.title} role={item.role} description={item.description} />
 			</div>
-			<div class:col-start-1={isOdd} class={`${item.bg} row-start-1 relative`}>
-				<div class="special-grid">
-					<div class="number number-1">
-						<span>Authentication / Authorization</span>
+			<div class:relative={false} class:col-start-1={isOdd} class={`${item.bg} row-start-1`}>
+				{#if false}
+					<div class="special-grid-wrapper relative">
+						<div class="special-grid">
+							<div class="number number-1">
+								<span>Authentication / Authorization</span>
+							</div>
+							<div class="number number-2">
+								<span>CMS</span>
+							</div>
+							<div class="number number-3">
+								<span>Client</span>
+							</div>
+							<div class="number number-4">
+								<span>Vendor</span>
+							</div>
+						</div>
+						<div
+							class={` absolute right-0 text-7xl bottom-0 rotate-180 font-black`}
+							style="writing-mode: vertical-rl;text-orientation: sideways;"
+						>
+							{item.title}
+						</div>
 					</div>
-					<div class="number number-2">
-						<span>CMS</span>
-					</div>
-					<div class="number number-3">
-						<span>Client</span>
-					</div>
-					<div class="number number-4">
-						<span>Vendor</span>
-					</div>
-				</div>
-				<div
-					class={` absolute right-0 text-7xl bottom-0 rotate-180 font-black`}
-					style="writing-mode: vertical-rl;text-orientation: sideways;"
-				>
-					{item.title}
-				</div>
+				{/if}
 			</div>
 		</div>
 	{/each}
 </section>
 
 <style lang="postcss">
+	.special-grid-wrapper {
+		height: 100%;
+	}
 	.special-grid {
 		height: 100%;
+		position: relative;
 		transition: 500ms;
 		display: grid;
-		grid-template-rows: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 0.5fr 0.5fr 0.5fr 2.5fr;
 
 		.number:first-child {
 			border-top: none;
@@ -145,9 +151,6 @@
 	}
 	.special-grid:has(.number-3:hover) {
 		grid-template-rows: 0.5fr 0.5fr 2.5fr 0.5fr;
-	}
-	.special-grid:has(.number-4:hover) {
-		grid-template-rows: 0.5fr 0.5fr 0.5fr 2.5fr;
 	}
 
 	.content-item {
