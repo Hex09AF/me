@@ -6,7 +6,15 @@
 </script>
 
 <AppBar class="container mx-auto" background="bg-surface-100-900-token" shadow="shadow-none">
-	<svelte:fragment slot="lead"><a href="/">Hex</a></svelte:fragment>
+	<svelte:fragment slot="lead">
+		<a href="/">
+			<div class="uppercase font-bold leading-[1]">
+				<div>Quoc Hex Hex</div>
+				<div>Hex Hex Hex</div>
+				<div>Hex Hex Huy</div>
+			</div>
+		</a>
+	</svelte:fragment>
 	<svelte:fragment slot="trail">
 		<ul>
 			<li>
@@ -18,6 +26,6 @@
 		<LightSwitch />
 	</svelte:fragment>
 </AppBar>
-<div class="container mx-auto px-4">
+<div class="mx-auto">
 	<slot />
 </div>
