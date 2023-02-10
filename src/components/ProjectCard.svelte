@@ -2,7 +2,7 @@
 	export let title: string = '';
 	export let role: string = '';
 	export let description: string = '';
-
+	export let onDetail: any;
 	const marqueeRole = new Array(10)
 		.fill(0)
 		.map(() => role)
@@ -22,7 +22,7 @@
 	<p class="mb-6 mt-12">
 		{description}
 	</p>
-	<button class="btn variant-filled-primary btn-base btn-marquee">
+	<button on:click={onDetail} class="btn variant-filled-primary btn-base btn-marquee">
 		<div class="btn-marquee-inner">
 			<span data-text="See the detail"> See the detail </span>
 		</div>
