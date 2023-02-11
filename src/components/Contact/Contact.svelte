@@ -5,7 +5,10 @@
 </script>
 
 <section>
-	<div>LET'S CONNECT</div>
+	<div class="text-3xl">
+		<div>LET'S</div>
+		<div>CONNECT</div>
+	</div>
 
 	<div class="flex items-center justify-center">
 		<a
