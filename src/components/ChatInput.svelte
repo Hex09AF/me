@@ -19,7 +19,7 @@
 				aria-label="Say something... (slow mode is on)"
 			/>
 			<!-- svelte-ignore a11y-label-has-associated-control -->
-			<label class:hidden={haveContent} class="text-xs live-chat__label"
+			<label class:hidden={haveContent} class="text-xs live-chat__label whitespace-nowrap"
 				>Say something... (slow mode is on)</label
 			>
 			<div id="underline">

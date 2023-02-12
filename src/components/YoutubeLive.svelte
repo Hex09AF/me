@@ -4,7 +4,7 @@
 </script>
 
 <section>
-	<div class="live-container">
+	<div class="live-container flex-col lg:flex-row">
 		<Media />
 		<Chat />
 	</div>
@@ -12,6 +12,6 @@
 
 <style lang="postcss">
 	.live-container {
-		@apply flex flex-wrap gap-4;
+		@apply flex gap-4;
 	}
 </style>

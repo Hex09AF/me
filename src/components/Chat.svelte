@@ -3,7 +3,7 @@
 	import Message from './Message.svelte';
 </script>
 
-<div class="live-chat dark:bg-surface-500">
+<div class="live-chat dark:bg-surface-500 lg:flex-1">
 	<div class="live-chat__wrapper">
 		<div class="live-chat__header">Live Chat</div>
 		<div class="live-chat__body bg-gray-200	 dark:bg-surface-700">
@@ -32,10 +32,10 @@
 
 <style lang="postcss">
 	.live-chat {
-		@apply max-h-[80vh] flex-1  rounded-xl border border-surface-500;
+		@apply max-h-[80vh] flex rounded-xl border border-surface-500;
 
 		&__wrapper {
-			@apply flex flex-col h-full;
+			@apply flex flex-col flex-1;
 		}
 
 		&__header {

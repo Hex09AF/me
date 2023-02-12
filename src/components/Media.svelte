@@ -10,7 +10,7 @@
 	import Tech from './Tech/Tech.svelte';
 </script>
 
-<div class="live-media">
+<div class="live-media lg:flex-[2]">
 	<div class="live-media__container">
 		<div class="live-media__content w-full h-full relative">
 			{#if $currentScence === SCENCE.INTRO}
@@ -40,15 +40,12 @@
 	</div>
 	<div class="live-media__metadata mt-4">
 		<h4 class="live-media__title">lofi hip hop radio - beats to relax/study to</h4>
-		<div class="live-media__owner-info flex justify-between items-center mt-3">
+		<div class="live-media__owner-info flex justify-between items-center mt-3 flex-wrap gap-3">
 			<div class="live-media__owner flex">
-				<Avatar class="mr-3" />
+				<Avatar class="mr-3 flex-shrink-0" />
 				<div class="mr-6">
 					<div>Hex</div>
 					<div class="text-xs opacity-60">11.9M subscribers</div>
-				</div>
-				<div class="mr-3 flex items-center">
-					<button class="btn btn-sm variant-filled-surface"> Join </button>
 				</div>
 				<div class="live-media__subscribe flex items-center">
 					<button class="btn btn-sm variant-filled-primary"> Subscribe </button>
@@ -62,14 +59,6 @@
 						<button class="btn btn-sm variant-filled-surface"> Share </button>
 					</div>
 				</div>
-				<div class="live-media__advance flex ml-2 items-center">
-					<div>
-						<button class="btn btn-sm variant-filled-surface"> Clip </button>
-					</div>
-					<div class="ml-2">
-						<button class="btn btn-sm variant-filled-surface"> Save </button>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -77,7 +66,7 @@
 
 <style lang="postcss">
 	.live-media {
-		@apply flex-[2] h-full;
+		@apply h-full;
 
 		&__container {
 			@apply aspect-video relative;
