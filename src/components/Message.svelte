@@ -1,16 +1,20 @@
 <script>
 	import { Avatar } from '@skeletonlabs/skeleton';
+
+	export let author = 'Author';
+	export let message =
+		'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.';
+	export let time = '00:00 PM';
 </script>
 
 <div class="live-chat__message">
 	<Avatar class="live-chat__avatar" initials="JD" width="w-7" />
 	<div class="live-chat__content">
-		<span class="live-chat__time">00:00 PM</span>
-		<span class="live-chat__author">Author</span>
-		<span class="live-chat__text"
-			>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
-			industries for previewing layouts and visual mockups.</span
-		>
+		<span class="live-chat__time">{time}</span>
+		<span class="live-chat__author">{author}</span>
+		<span class="live-chat__text">
+			{message}
+		</span>
 	</div>
 </div>
 
