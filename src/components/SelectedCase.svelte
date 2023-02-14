@@ -3,8 +3,8 @@
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	// import Scrollbar from 'smooth-scrollbar';
 	import { onMount } from 'svelte';
-	import Case from './Case/Case.svelte';
-	import ProjectCard from './ProjectCard.svelte';
+	import Case from './SelectedCase/Case.svelte';
+	import ProjectCard from './SelectedCase/ProjectCard.svelte';
 
 	const listProject = [
 		{

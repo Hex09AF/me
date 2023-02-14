@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import { T } from '@threlte/core';
-	import { currentScence, SCENCE } from '../store/scence';
+	import { currentScence, SCENCE } from '../../../store/scence';
 	import Credit from './Credit/Credit.svelte';
 	import Intro from './Intro/Intro.svelte';
 	import LottieLike from './LottieLike/LottieLike.svelte';
-	import Toolbar from './Media/Toolbar.svelte';
+	import Toolbar from './Tool/Toolbar.svelte';
 	import Nyan from './Nyan/Nyan.svelte';
 	import Tech from './Tech/Tech.svelte';
 </script>

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Matter from 'matter-js';
 	import { onMount } from 'svelte';
-	import JSLogo from '../../assets/tech/javascript.svg';
-	import ReactLogo from '../../assets/tech/react.svg';
-	import ScssLogo from '../../assets/tech/scss.svg';
-	import TSLogo from '../../assets/tech/typescript.svg';
+	import JSLogo from '../../../../assets/tech/javascript.svg';
+	import ReactLogo from '../../../../assets/tech/react.svg';
+	import ScssLogo from '../../../../assets/tech/scss.svg';
+	import TSLogo from '../../../../assets/tech/typescript.svg';
 
 	const listTech = [
 		{

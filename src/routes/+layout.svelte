@@ -18,8 +18,8 @@
 	<svelte:fragment slot="trail">
 		<ul>
 			<li>
-				<a href="/"> Works </a>
 				<a href="/"> About </a>
+				<a href="/"> Works </a>
 				<a href="/"> Contact </a>
 			</li>
 		</ul>

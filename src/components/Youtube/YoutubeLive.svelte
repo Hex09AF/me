@@ -1,6 +1,6 @@
 <script>
-	import Chat from './Chat.svelte';
-	import Media from './Media.svelte';
+	import Chat from './Chat/Chat.svelte';
+	import Media from './Frame/Media.svelte';
 </script>
 
 <section>

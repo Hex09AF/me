@@ -1,4 +1,5 @@
 <script>
+	import { Canvas } from '@threlte/core';
 	import { onMount } from 'svelte';
 	import Model from '../Model/Model.svelte';
 	onMount(() => {
@@ -51,7 +52,9 @@
 
 <div class="flex w-full h-full justify-between relative">
 	<div class="absolute right-0 w-full h-full">
-		<Model />
+		<Canvas>
+			<Model />
+		</Canvas>
 	</div>
 	<div class="flex items-center">
 		<h1 class="header-main-line revert-text">

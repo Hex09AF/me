@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import MessageService from '../services/message';
-	import randBetween from '../utils/rand';
-	import { chatTimeFormat } from '../utils/time';
-	import wait from '../utils/wait';
+	import MessageService from '../../../services/message';
+	import randBetween from '../../../utils/rand';
+	import { chatTimeFormat } from '../../../utils/time';
+	import wait from '../../../utils/wait';
 	import ChatInput from './ChatInput.svelte';
 	import Message from './Message.svelte';
 

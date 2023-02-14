@@ -8,7 +8,7 @@
 </script>
 
 <div class="live-chat__message">
-	<Avatar class="live-chat__avatar" initials="JD" width="w-7" />
+	<Avatar class="live-chat__avatar" initials={author} width="w-7" />
 	<div class="live-chat__content">
 		<span class="live-chat__time">{time}</span>
 		<span class="live-chat__author">{author}</span>

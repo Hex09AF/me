@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { currentScence, SCENCE } from '../../store/scence';
+	import { currentScence, SCENCE } from '../../../../store/scence';
 	export let item: string = '';
 
 	let isShowPreview = false;

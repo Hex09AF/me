@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ProjectCard from '../ProjectCard.svelte';
+	import ProjectCard from './ProjectCard.svelte';
 
 	export let isOdd = false;
 	export let item: any;

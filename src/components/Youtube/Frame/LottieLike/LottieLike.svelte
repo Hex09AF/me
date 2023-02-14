@@ -1,6 +1,6 @@
 <script lang="ts">
-	import lottieLikeBtn from '../../assets/lottie/like-btn.json';
-	import Dislike from '../../assets/Dislike.svelte';
+	import lottieLikeBtn from '../../../../assets/lottie/like-btn.json';
+	import Dislike from '../../../../assets/Dislike.svelte';
 	const getLottie = async () => {
 		const module = await import('@lottiefiles/svelte-lottie-player');
 		return module.LottiePlayer;

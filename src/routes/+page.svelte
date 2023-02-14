@@ -2,7 +2,7 @@
 	import Contact from '../components/Contact/Contact.svelte';
 	import SelectedCase from '../components/SelectedCase.svelte';
 	import Welcome from '../components/Welcome/Welcome.svelte';
-	import YoutubeLive from '../components/YoutubeLive.svelte';
+	import YoutubeLive from '../components/Youtube/YoutubeLive.svelte';
 
 	import { onMount } from 'svelte';
 	import { gsap } from 'gsap';

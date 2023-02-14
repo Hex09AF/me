@@ -1,5 +1,5 @@
 <script>
-	import { SCENCE } from '../../store/scence';
+	import { SCENCE } from '../../../../store/scence';
 	import Progress from './Progress.svelte';
 
 	const scenceAr = Object.values(SCENCE);
