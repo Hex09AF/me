@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { currentScence, SCENCE } from '../../../../store/scence';
+	import { currentScence } from '../../../../store/scence';
 	export let item: string = '';
+	export let scale: number = 0;
 
 	let isShowPreview = false;
 </script>
@@ -15,9 +16,8 @@
 	on:mouseleave={() => (isShowPreview = false)}
 >
 	<div class="progress-bar__wrapper">
-		<div class="progress-bar__player-progress" />
-		<div class="progress-bar__chapter-buffer" />
-		<div class="progress-bar__load-progress" />
+		<!-- <div class="progress-bar__load-progress" /> -->
+		<div class="progress-bar__player-progress" style={`transform: scaleX(${scale})`} />
 	</div>
 	{#if isShowPreview}
 		<div class="preview" transition:fade>{item}</div>
@@ -57,7 +57,14 @@
 		}
 
 		&__player-progress {
-			@apply bg-red-500;
+			transform: scaleX(0);
+			background-color: #f00;
 		}
+
+		/* &__load-progress {
+			position: absolute;
+			background-color: rgba(255, 255, 255, 0.4);
+			top: 0;
+		} */
 	}
 </style>

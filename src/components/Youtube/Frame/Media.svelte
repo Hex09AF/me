@@ -1,13 +1,12 @@
 <script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
-	import { T } from '@threlte/core';
 	import { currentScence, SCENCE } from '../../../store/scence';
 	import Credit from './Credit/Credit.svelte';
 	import Intro from './Intro/Intro.svelte';
 	import LottieLike from './LottieLike/LottieLike.svelte';
-	import Toolbar from './Tool/Toolbar.svelte';
 	import Nyan from './Nyan/Nyan.svelte';
 	import Tech from './Tech/Tech.svelte';
+	import Toolbar from './Tool/Toolbar.svelte';
 </script>
 
 <div class="live-media lg:flex-[2]">
@@ -39,7 +38,7 @@
 		<Toolbar />
 	</div>
 	<div class="live-media__metadata mt-4">
-		<h4 class="live-media__title">lofi hip hop radio - beats to relax/study to</h4>
+		<h4 class="live-media__title">A day in the life of a software engineer</h4>
 		<div class="live-media__owner-info flex justify-between items-center mt-3 flex-wrap gap-3">
 			<div class="live-media__owner flex">
 				<Avatar class="mr-3 flex-shrink-0" />
@@ -72,6 +71,10 @@
 			@apply aspect-video relative;
 			max-width: 100%;
 			max-height: 100%;
+
+			&:hover :global(.live-media__toolbar) {
+				opacity: 1;
+			}
 		}
 	}
 </style>
