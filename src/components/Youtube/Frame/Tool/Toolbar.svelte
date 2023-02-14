@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { linear } from 'svelte/easing';
 	import { tweened } from 'svelte/motion';
 	import { currentScence, SCENCE } from '../../../../store/scence';
@@ -12,15 +12,28 @@
 	second.set(50);
 	const timePerScence = 50 / scenceAr.length;
 	const ratio = 1 / timePerScence;
+
+	function handleClickProgress(index: number, calSec: number) {
+		const curSec = index * timePerScence + calSec;
+		second.set(curSec, {
+			duration: 0
+		});
+		second.set(50, {
+			duration: (50 - curSec) * 1000,
+			easing: linear
+		});
+	}
 </script>
 
 <div class="live-media__toolbar">
 	<div class="progress-bar">
 		<div class="progress-bar__chapter-container">
-			{#each scenceAr as item, i}
+			{#each scenceAr as item, index}
 				<Progress
 					{item}
-					scale={Math.max(0, Math.min($second - timePerScence * i, timePerScence)) * ratio}
+					scale={Math.max(0, Math.min($second - timePerScence * index, timePerScence)) * ratio}
+					{index}
+					{handleClickProgress}
 				/>
 			{/each}
 		</div>

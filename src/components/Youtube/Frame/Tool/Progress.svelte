@@ -3,24 +3,27 @@
 	import { currentScence } from '../../../../store/scence';
 	export let item: string = '';
 	export let scale: number = 0;
+	export let index: number;
+	export let handleClickProgress: Function;
 
 	let isShowPreview = false;
 </script>
 
 <button
 	class="progress-bar__chapter"
-	on:click={() => {
+	on:click={(e) => {
 		currentScence.update(() => item);
+		handleClickProgress(index, (10 / e.currentTarget.offsetWidth) * e.offsetX);
 	}}
 	on:mouseenter={() => (isShowPreview = true)}
 	on:mouseleave={() => (isShowPreview = false)}
 >
-	<div class="progress-bar__wrapper">
+	<div class="progress-bar__wrapper pointer-events-none">
 		<!-- <div class="progress-bar__load-progress" /> -->
 		<div class="progress-bar__player-progress" style={`transform: scaleX(${scale})`} />
 	</div>
 	{#if isShowPreview}
-		<div class="preview" transition:fade>{item}</div>
+		<div class="preview pointer-events-none" transition:fade>{item}</div>
 	{/if}
 </button>
 

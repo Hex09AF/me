@@ -43,10 +43,6 @@
 	onMount(() => {
 		getAllMessages();
 	});
-
-	$: {
-		console.log(messages);
-	}
 </script>
 
 <div class="live-chat dark:bg-surface-500 lg:flex-1">
