@@ -2,40 +2,104 @@
 	import gsap from 'gsap';
 	import { onMount } from 'svelte';
 	import CircleText from './CircleText.svelte';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 	onMount(() => {
+		gsap.registerPlugin(ScrollTrigger);
+
+		const inWelcome = 1;
+		const outWelcome = 1;
+		const inName = 1;
+		const outName = 1.5;
+		const inText = 1;
+		const outText = 1;
+
 		const tl = gsap
 			.timeline()
-			.to('#circle-welcome', { padding: '100%', borderRadius: 0 }, 0)
-			.to('#fs-welcome', { x: '0%' }, 0)
-			.to('#sc-welcome', { x: '0%' }, 0)
-			.to('#tr-welcome', { x: '0%' }, 0)
-			.to('#fs-welcome', { yPercent: 250, opacity: 0 }, 0.5)
-			.to('#sc-welcome', { yPercent: 150, opacity: 0 }, 0.5)
-			.to('#tr-welcome', { yPercent: 100, opacity: 0 }, 0.5)
-			.to('#circle-welcome', { opacity: 0 }, 0.75)
-			.to('#circle-name', { x: '0%', borderRadius: 0 }, 0.75)
-			.to('#fs-name', { x: '0%' }, 0.8)
-			.to('#sc-name', { x: '0%' }, 0.9)
-			.to('#tr-name', { x: '0%' }, 1)
-			.to('#fs-name', { x: '100%', opacity: 0 }, 1.5)
-			.to('#sc-name', { x: '100%', opacity: 0 }, 1.55)
-			.to('#tr-name', { x: '100%', opacity: 0 }, 1.6)
-			.to('#circle-name', { opacity: 0, x: '100%', borderRadius: 9999 }, 1.6)
-			.to('#circle-text', { padding: '50%' }, 2)
-			.to('#fs-text', { opacity: 1, rotate: 50 }, 2)
-			.to('#sc-text', { opacity: 1, rotate: -70 }, 2)
-			.to('#tr-text', { opacity: 1, rotate: 90 }, 2)
-			.to('#qd-text', { opacity: 1, rotate: -110 }, 2)
-			.to('#fs-text', { opacity: 1, width: '3000px', height: '3000px', ease: 'back.in(1.7)' }, 2.5)
-			.to('#sc-text', { opacity: 1, width: '3000px', height: '3000px', ease: 'back.in(1.7)' }, 2.5)
-			.to('#tr-text', { opacity: 1, width: '3000px', height: '3000px', ease: 'back.in(1.7)' }, 2.5)
-			.to('#qd-text', { opacity: 1, width: '3000px', height: '3000px', ease: 'back.in(1.7)' }, 2.5)
-			.to('#circle-text', { padding: 0 }, 2.5);
+			// Slower than text
+			.to(
+				'#circle-welcome',
+				{ padding: '100%', borderRadius: 0, duration: inWelcome + 2 },
+				'in:welcome'
+			)
+			// Same as circle
+			.to('#fs-welcome', { x: '0%', duration: inWelcome }, '<')
+			.to('#sc-welcome', { x: '0%', duration: inWelcome }, '<')
+			.to('#tr-welcome', { x: '0%', duration: inWelcome }, '<')
+			// Overlap with welcome
+			.to('#fs-welcome', { yPercent: 250, opacity: 0, duration: outWelcome }, '-=2')
+			.to('#sc-welcome', { yPercent: 150, opacity: 0, duration: outWelcome }, '<')
+			.to('#tr-welcome', { yPercent: 100, opacity: 0, duration: outWelcome }, '<')
+			.to('#circle-welcome', { opacity: 0, duration: outWelcome }, '<')
+
+			.to('#circle-name', { x: '0%', duration: inName + 1 }, '>-=1')
+			.to('#fs-name', { x: '0%', duration: inName }, '<+=0.25')
+			.to('#sc-name', { x: '0%', duration: inName }, '<+=0.35')
+			.to('#tr-name', { x: '0%', duration: inName }, '<+=0.45')
+			.to('#tr-name', { x: '100%', opacity: 0, duration: outName }, '>')
+			.to('#sc-name', { x: '100%', opacity: 0, duration: outName }, '<')
+			.to('#fs-name', { x: '100%', opacity: 0, duration: outName }, '<')
+			.to('#circle-name', { opacity: 0, x: '100%', duration: outName }, '<')
+			.to('#circle-text', { padding: '50%', duration: inText }, '>-1')
+			.to('#fs-text', { opacity: 1, rotate: 50, duration: inText }, '<')
+			.to('#sc-text', { opacity: 1, rotate: -70, duration: inText }, '<')
+			.to('#tr-text', { opacity: 1, rotate: 90, duration: inText }, '<')
+			.to('#qd-text', { opacity: 1, rotate: -110, duration: inText }, '<')
+			.to(
+				'#fs-text',
+				{
+					width: 3000,
+					height: 3000,
+					ease: 'back.in(1.7)',
+					duration: outText
+				},
+				'>'
+			)
+			.to(
+				'#sc-text',
+				{
+					width: 3000,
+					height: 3000,
+					ease: 'back.in(1.7)',
+					duration: outText
+				},
+				'<'
+			)
+			.to(
+				'#tr-text',
+				{
+					width: 3000,
+					height: 3000,
+					ease: 'back.in(1.7)',
+					duration: outText
+				},
+				'<'
+			)
+			.to(
+				'#qd-text',
+				{
+					width: 3000,
+					height: 3000,
+					ease: 'back.in(1.7)',
+					duration: outText
+				},
+				'<'
+			)
+			.to('#circle-text', { padding: 0, duration: outText }, '<');
+
+		// ScrollTrigger.create({
+		// 	animation: tl,
+		// 	scroller: '#scrollWrapper',
+		// 	trigger: '#welcome-wrapper',
+		// 	start: 'top top',
+		// 	end: '+=10000',
+		// 	scrub: 1,
+		// 	pin: true
+		// });
 	});
 </script>
 
-<section class="z-20 uppercase font-bold leading-[1] h-full">
+<section class="z-20 uppercase font-bold leading-[1] h-[100%]">
 	<div id="welcome-wrapper" class="relative overflow-hidden h-full">
 		<section id="section-welcome" class="w-full h-full absolute flex flex-col justify-center">
 			<div
@@ -44,7 +108,9 @@
 			/>
 			<div id="fs-welcome" class="welcome text-center w-full text-[10vw] text-red-600">Welcome</div>
 			<div id="sc-welcome" class="welcome text-center w-full text-[10vw]">Welcome</div>
-			<div id="tr-welcome" class="welcome text-center w-full text-[10vw] text-zinc-800">Welcome</div>
+			<div id="tr-welcome" class="welcome text-center w-full text-[10vw] text-zinc-800">
+				Welcome
+			</div>
 		</section>
 
 		<section id="section-name" class="w-full h-full absolute flex flex-col justify-center">
@@ -54,7 +120,7 @@
 			<div id="tr-name" class="name text-center w-full text-[10vw] text-zinc-800">Quoc Huy</div>
 		</section>
 
-		<section id="section-text" class="absolute top-0 w-full h-full">
+		<section id="section-text" class="absolute top-0 w-full h-full overflow-hidden">
 			<div
 				id="circle-text"
 				class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-500"
@@ -74,7 +140,7 @@
 				</div>
 				<div
 					id="tr-text"
-					class="origin-center opacity-0 w-[90%] h-[90%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+					class="origin-center opacity-0 w-[95%] h-[95%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 				>
 					<CircleText fillColor="fill-amber-600" />
 				</div>

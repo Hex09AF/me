@@ -15,7 +15,7 @@
 	<div class="live-media__container">
 		<div class="live-media__content w-full h-full relative">
 			{#if $frame === FRAME_INFO.INTRO.name}
-				<div class="relative h-full max-h-full overflow-auto" id="scrollWrapper">
+				<div class="relative h-full max-h-full overflow-y-auto overflow-x-hidden" id="scrollWrapper">
 					<Welcome />
 					<!-- <Intro /> -->
 				</div>
