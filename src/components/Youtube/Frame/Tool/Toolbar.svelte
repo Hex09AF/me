@@ -4,7 +4,7 @@
 	import { videoTimeFormat } from '../../../../utils/time';
 	import Progress from './Progress.svelte';
 
-	frameSecond.set(50);
+	// frameSecond.set(50);
 	const scenceAr = Object.keys(FRAME_INFO);
 </script>
 

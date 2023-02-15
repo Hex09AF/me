@@ -2,6 +2,7 @@
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import { FRAME_INFO } from '../../../store/frame/constant';
 	import { frame } from '../../../store/frame/frame';
+	import Welcome from '../../Welcome/Welcome.svelte';
 	import Credit from './Credit/Credit.svelte';
 	import Intro from './Intro/Intro.svelte';
 	import LottieLike from './LottieLike/LottieLike.svelte';
@@ -14,7 +15,10 @@
 	<div class="live-media__container">
 		<div class="live-media__content w-full h-full relative">
 			{#if $frame === FRAME_INFO.INTRO.name}
-				<Intro />
+				<div class="relative h-full max-h-full overflow-auto" id="scrollWrapper">
+					<Welcome />
+					<!-- <Intro /> -->
+				</div>
 			{/if}
 			{#if $frame === FRAME_INFO.LEARNING.name}
 				<Tech />
