@@ -11,6 +11,18 @@
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
 
+		const chatTl = gsap.timeline().to('#scrollMedia', { z: 200, opacity: 0 }, 0);
+
+		ScrollTrigger.create({
+			animation: chatTl,
+			trigger: '#scrollTest',
+			start: `top top`,
+			end: `+=1000`,
+			scrub: 1,
+			pinSpacing: false,
+			pin: true
+		});
+
 		const tl = gsap
 			.timeline()
 			.to('#circle-welcome', { padding: '100%', borderRadius: 0 }, 0)

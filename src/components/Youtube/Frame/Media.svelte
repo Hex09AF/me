@@ -22,16 +22,6 @@
 			{#if $frame === FRAME_INFO.REST.name}
 				<Nyan />
 			{/if}
-			{#if $frame === FRAME_INFO.ANIME.name}
-				<iframe
-					title="anime summer wars"
-					src="https://giphy.com/embed/3oz8xCoHgi4N5qlLYA"
-					width="100%"
-					height="100%"
-					frameBorder="0"
-					allowFullScreen
-				/>
-			{/if}
 			{#if $frame === FRAME_INFO.CREDIT.name}
 				<Credit />
 			{/if}

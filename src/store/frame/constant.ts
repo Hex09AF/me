@@ -14,11 +14,6 @@ const FRAME_INFO = {
 		finish: 30,
 		name: 'Stretch nyan'
 	},
-	ANIME: {
-		start: 30,
-		finish: 40,
-		name: 'Watching anime'
-	},
 	CREDIT: {
 		start: 40,
 		finish: 50,

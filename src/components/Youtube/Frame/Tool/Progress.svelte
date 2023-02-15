@@ -47,7 +47,7 @@
 	.progress-bar {
 		&__chapter {
 			@apply float-left h-full relative;
-			width: calc((100% - 8px) / 5);
+			width: calc((100% - 6px) / 4);
 			margin-right: 2px;
 			&:last-child {
 				margin-right: 0;
