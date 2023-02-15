@@ -23,8 +23,11 @@
 </script>
 
 {#await promise then LottiePlayer}
-	<div class="btn-group btn-group-sm variant-filled-surface">
-		<button on:click={onClick}>
+	<div class="overflow-visible flex">
+		<button
+			on:click={onClick}
+			class="flex btn btn-group-left btn-sm rounded-none variant-filled-surface rounded-l-full"
+		>
 			<div class="mr-1">
 				<div class="icon__limit">
 					<div class="lottie__container">
@@ -44,9 +47,9 @@
 					</div>
 				</div>
 			</div>
-			293
+			199K
 		</button>
-		<button>
+		<button class="btn btn-sm variant-filled-surface rounded-none rounded-r-full">
 			<div class="icon__limit dislike">
 				<Dislike />
 			</div>
@@ -55,15 +58,18 @@
 {/await}
 
 <style lang="postcss">
-	.btn-group-sm > button {
-		padding-left: 0.75rem;
-		padding-right: 0.75rem;
-		padding-top: 0.375rem;
-		padding-bottom: 0.375rem;
-		font-size: 0.875rem;
-		line-height: 1.25rem;
+	.btn-group-left {
+		position: relative;
+		&::after {
+			content: '';
+			background: rgba(255, 255, 255, 0.2);
+			position: absolute;
+			right: 0;
+			top: 8px;
+			height: 20px;
+			width: 1px;
+		}
 	}
-
 	.icon__limit {
 		@apply relative;
 		width: 24px;

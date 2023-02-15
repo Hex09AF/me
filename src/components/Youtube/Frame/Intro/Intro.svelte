@@ -58,8 +58,8 @@
 	</div>
 	<div class="flex items-center">
 		<h1 class="header-main-line revert-text">
-			<span class="text-5xl block font-bold deep">YOU</span>
-			<span id="txt" class="main-line text-6xl block font-bold">YEAH YOU</span>
+			<span class="text-5xl block font-bold deep uppercase">You</span>
+			<span id="txt" class="main-line text-6xl block font-bold uppercase">Yes you</span>
 			<p class="block">
 				<span class="text-3xl font-bold">I'm Hex</span>, a web developer from Vietnam
 			</p>

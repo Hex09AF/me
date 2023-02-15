@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
-	import { currentScence, SCENCE } from '../../../store/scence';
+	import { FRAME_INFO } from '../../../store/frame/constant';
+	import { frame } from '../../../store/frame/frame';
 	import Credit from './Credit/Credit.svelte';
 	import Intro from './Intro/Intro.svelte';
 	import LottieLike from './LottieLike/LottieLike.svelte';
@@ -9,19 +10,19 @@
 	import Toolbar from './Tool/Toolbar.svelte';
 </script>
 
-<div class="live-media lg:flex-[2]">
+<div class="live-media lg:flex-[2.4]">
 	<div class="live-media__container">
 		<div class="live-media__content w-full h-full relative">
-			{#if $currentScence === SCENCE.INTRO}
+			{#if $frame === FRAME_INFO.INTRO.name}
 				<Intro />
 			{/if}
-			{#if $currentScence === SCENCE.TECH}
+			{#if $frame === FRAME_INFO.LEARNING.name}
 				<Tech />
 			{/if}
-			{#if $currentScence === SCENCE.REST}
+			{#if $frame === FRAME_INFO.REST.name}
 				<Nyan />
 			{/if}
-			{#if $currentScence === SCENCE.ANIME}
+			{#if $frame === FRAME_INFO.ANIME.name}
 				<iframe
 					title="anime summer wars"
 					src="https://giphy.com/embed/3oz8xCoHgi4N5qlLYA"
@@ -31,7 +32,7 @@
 					allowFullScreen
 				/>
 			{/if}
-			{#if $currentScence === SCENCE.CREDIT}
+			{#if $frame === FRAME_INFO.CREDIT.name}
 				<Credit />
 			{/if}
 		</div>
@@ -39,12 +40,14 @@
 	</div>
 	<div class="live-media__metadata mt-4">
 		<h4 class="live-media__title">A day in the life of a software engineer</h4>
-		<div class="live-media__owner-info flex justify-between items-center mt-3 flex-wrap gap-3">
+		<div
+			class="live-media__owner-info flex justify-between items-center mt-3 flex-wrap gap-3 font-medium"
+		>
 			<div class="live-media__owner flex">
-				<Avatar class="mr-3 flex-shrink-0" />
+				<Avatar class="mr-3 flex-shrink-0" initials="HX" />
 				<div class="mr-6">
 					<div>Hex</div>
-					<div class="text-xs opacity-60">11.9M subscribers</div>
+					<div class="text-xs opacity-60 font-normal">19.9M subscribers</div>
 				</div>
 				<div class="live-media__subscribe flex items-center">
 					<button class="btn btn-sm variant-filled-primary"> Subscribe </button>
