@@ -1,11 +1,6 @@
 <script lang="ts">
-	import { gsap } from 'gsap';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-	// import Scrollbar from 'smooth-scrollbar';
-	import { onMount } from 'svelte';
 	import Case from './SelectedCase/Case.svelte';
-	import ProjectCard from './SelectedCase/ProjectCard.svelte';
-
+	import foodeliveImg from "../assets/project/foodelive.png"
 	const listProject = [
 		{
 			title: 'Foodelive',
@@ -13,7 +8,8 @@
 			description:
 				"Whether you're ordering food for two or hosting a party for thousands people, you will always find the best menu and service that's right for you.",
 			bg: 'bg-red-500',
-			txt: 'text-red-400'
+			txt: 'text-red-400',
+			projectImg: foodeliveImg
 		},
 		{
 			title: 'Devouch',

@@ -5,7 +5,7 @@
 
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
@@ -15,7 +15,7 @@
 			if (i != eles.length - 1) {
 				ScrollTrigger.create({
 					trigger: panel,
-					start: 'top top',
+					start: '-=80 top',
 					end: '+=' + panel.offsetHeight * (eles.length - i - 1),
 					scrub: 1,
 					pin: true,
