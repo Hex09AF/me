@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { SECOND_PER_FRAME } from '../../../../store/frame/constant';
 	import { spring } from 'svelte/motion';
 	import { fade } from 'svelte/transition';
 	import { frameSecond } from '../../../../store/frame/frame';
@@ -14,7 +15,10 @@
 <div class="progress-bar__chapter">
 	<button
 		on:click={(e) => {
-			frameSecond.handleClickProgress(index, (10 / e.currentTarget.offsetWidth) * e.offsetX);
+			frameSecond.handleClickProgress(
+				index,
+				(SECOND_PER_FRAME / e.currentTarget.offsetWidth) * e.offsetX
+			);
 		}}
 		on:mouseenter={() => (isShowPreview = true)}
 		on:mouseleave={() => (isShowPreview = false)}

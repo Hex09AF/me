@@ -1,16 +1,16 @@
 import { linear } from 'svelte/easing';
 import { tweened } from 'svelte/motion';
 import { derived } from 'svelte/store';
-import { FRAME_INFO } from './constant';
+import { FRAME_INFO, TOTAL_TIME } from './constant';
 
 function createFrameSecond() {
 	const { subscribe, set, update } = tweened(0, {
-		duration: 50000,
+		duration: TOTAL_TIME * 1000,
 		easing: linear
 	});
 
 	const scenceAr = Object.keys(FRAME_INFO);
-	const timePerScence = 50 / scenceAr.length;
+	const timePerScence = TOTAL_TIME / scenceAr.length;
 	const ratio = 1 / timePerScence;
 
 	return {
@@ -25,8 +25,8 @@ function createFrameSecond() {
 			set(curSec, {
 				duration: 0
 			});
-			set(50, {
-				duration: (50 - curSec) * 1000,
+			set(TOTAL_TIME, {
+				duration: (TOTAL_TIME - curSec) * 1000,
 				easing: linear
 			});
 		}

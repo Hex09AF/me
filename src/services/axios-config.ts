@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { ENV } from '../declares/env';
-import { LocalStorageKey } from '../declares/interfaces/local-storage';
+import { LSKey } from '../declares/interfaces/local-storage';
+import { LSService } from '../utils/local-storage';
 
 const axiosClient = axios.create({
 	baseURL: `${ENV.API_URL}`,
@@ -19,7 +20,7 @@ axiosClient.interceptors.request.use(
 );
 
 axiosClient.interceptors.request.use(function (config) {
-	const token = localStorage.getItem(LocalStorageKey.AccessToken);
+	const token = LSService.getInstance().getKey(LSKey.AccessToken);
 	if (token && config && config.headers) {
 		config.headers.Authorization = token;
 	}

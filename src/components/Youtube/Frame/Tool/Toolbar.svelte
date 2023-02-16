@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { FRAME_INFO } from '../../../../store/frame/constant';
+	import { FRAME_INFO, TOTAL_TIME } from '../../../../store/frame/constant';
+	import type { KeyFrameInfo } from '../../../../store/frame/constant';
 	import { frame, frameSecond } from '../../../../store/frame/frame';
 	import { videoTimeFormat } from '../../../../utils/time';
 	import Progress from './Progress.svelte';
 
-	// frameSecond.set(50);
-	const scenceAr = Object.keys(FRAME_INFO);
+	frameSecond.set(TOTAL_TIME);
+	const scenceAr = Object.keys(FRAME_INFO) as KeyFrameInfo[];
 </script>
 
 <div class="live-media__toolbar">

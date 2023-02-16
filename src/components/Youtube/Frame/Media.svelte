@@ -2,6 +2,7 @@
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import { FRAME_INFO } from '../../../store/frame/constant';
 	import { frame } from '../../../store/frame/frame';
+	import { isSubscribe } from '../../../store/frame/subscribe';
 	import Welcome from '../../Welcome/Welcome.svelte';
 	import Credit from './Credit/Credit.svelte';
 	import Intro from './Intro/Intro.svelte';
@@ -15,7 +16,10 @@
 	<div class="live-media__container">
 		<div class="live-media__content w-full h-full relative">
 			{#if $frame === FRAME_INFO.INTRO.name}
-				<div class="relative h-full max-h-full overflow-y-auto overflow-x-hidden" id="scrollWrapper">
+				<div
+					class="relative h-full max-h-full overflow-y-auto overflow-x-hidden"
+					id="scrollWrapper"
+				>
 					<Welcome />
 					<!-- <Intro /> -->
 				</div>
@@ -44,7 +48,9 @@
 					<div class="text-xs opacity-60 font-normal">19.9M subscribers</div>
 				</div>
 				<div class="live-media__subscribe flex items-center">
-					<button class="btn btn-sm variant-filled-primary"> Subscribe </button>
+					<button class="btn btn-sm variant-filled-primary" on:click={isSubscribe.subscribed}>
+						{$isSubscribe ? 'Subscribed' : 'Subscribe'}
+					</button>
 				</div>
 			</div>
 

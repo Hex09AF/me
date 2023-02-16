@@ -1,3 +1,4 @@
-export enum LocalStorageKey {
-	AccessToken = 'access-token'
+export enum LSKey {
+	AccessToken = 'access-token',
+	IsSubscribe = 'is-subscribe'
 }
