@@ -1,10 +1,39 @@
-<script>
+<script lang="ts">
+	import gsap from 'gsap';
+	import { onMount } from 'svelte';
 	import qrImg from '../../../assets/project/qr.png';
 	import Button from './Button.svelte';
 
 	let active = false;
 
+	let tl: gsap.core.Tween;
+	let tlQr: gsap.core.Tween;
+
+	onMount(() => {
+		tl = gsap.from('.animation-text', {
+			paused: true,
+			opacity: 0,
+			xPercent: 100,
+			duration: 0.25,
+			stagger: 0.075,
+			ease: 'power1.inOut'
+		});
+		tlQr = gsap.from('#qrImage', {
+			paused: true,
+			opacity: 0,
+			duration: 0.25,
+			scale: 1.5,
+		});
+	});
+
 	function activeBG() {
+		if (active) {
+			tl.reverse();
+			tlQr.reverse();
+		} else {
+			tl.seek(0).restart();
+			tlQr.seek(0).play();
+		}
 		active = !active;
 	}
 </script>
@@ -20,11 +49,6 @@
 				<span class="text-9xl"> 10 </span>
 				<span class="text-7xl ml-2">%</span>
 			</h2>
-			<ul>
-				{#each new Array(20).fill(0) as item}
-					<li />
-				{/each}
-			</ul>
 		</div>
 		<div class="voucher-card-tear">
 			<ul>
@@ -35,11 +59,22 @@
 			<div class="voucher-half absolute uppercase h-full p-4">
 				<div class="flex items-center">
 					<div class="flex-1">
-						<div class="font-bold text-xl leading-none">Coffee</div>
-						<div class="font-bold text-xl leading-none">House</div>
-						<div class="text-sm">Voucher</div>
+						<div class="font-bold text-xl leading-none overflow-hidden">
+							<div class="animation-text">Coffee</div>
+						</div>
+						<div class="font-bold text-xl leading-none overflow-hidden">
+							<div class="animation-text">House</div>
+						</div>
+						<div class="text-sm overflow-hidden"><div class="animation-text">Voucher</div></div>
 					</div>
-					<img src={qrImg} alt="qr" width="80" height="80" class="rotate-90" />
+					<img
+						id="qrImage"
+						src={qrImg}
+						alt="qr"
+						width="80"
+						height="80"
+						class="rotate-90 origin-center"
+					/>
 				</div>
 			</div>
 			<button />
