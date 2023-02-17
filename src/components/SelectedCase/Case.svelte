@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ProjectCard from './ProjectCard.svelte';
 	import authImg from '../../assets/project/auth.png';
+	import Devouch from './Devouch/Devouch.svelte';
 
 	export let isOdd = false;
 	export let item: any;
@@ -21,7 +22,7 @@
 		/>
 	</div>
 	<div class:relative={isDetail} class:col-start-1={isOdd} class={`${item.bg} row-start-1 `}>
-		{#if isDetail && item.projectImg}
+		{#if isDetail && item.title === 'Foodelive'}
 			<div class="flex justify-center items-center h-full">
 				<div class="relative m-5">
 					<img src={item.projectImg} alt="project" />
@@ -44,29 +45,8 @@
 				</div>
 			</div>
 		{/if}
-		{#if isDetail && !item.projectImg}
-			<div class="special-grid-wrapper relative">
-				<div class="special-grid">
-					<div class="number number-1">
-						<span>Authentication / Authorization</span>
-					</div>
-					<div class="number number-2">
-						<span>CMS</span>
-					</div>
-					<div class="number number-3">
-						<span>Client</span>
-					</div>
-					<div class="number number-4">
-						<span>Vendor</span>
-					</div>
-				</div>
-				<div
-					class={` absolute right-0 text-7xl bottom-0 rotate-180 font-black`}
-					style="writing-mode: vertical-rl;text-orientation: sideways;"
-				>
-					{item.title}
-				</div>
-			</div>
+		{#if isDetail && item.title === 'Devouch'}
+			<Devouch />
 		{/if}
 	</div>
 </div>
