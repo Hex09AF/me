@@ -47,19 +47,10 @@
 		});
 		tlRemove = gsap.timeline({ paused: true });
 		tlRemove
-			.to('.voucher-scale', {
-				scale: 0.7
-			})
-			.to('.voucher-w-l', {
-				rotate: -30
-			})
-			.to(
-				'.voucher-w-r',
-				{
-					rotate: 30
-				},
-				'<'
-			);
+			.to('.voucher-scale', { scale: 0.7 })
+			.to('.voucher-w-l', { rotate: -30, rotateX: -25 })
+			.to('.voucher-w-r', { rotate: 30, rotateX: 25 }, '<')
+			.to('.voucher-rotate', { rotateY: 360, yPercent: 100, duration: 2 }, '-=0.25');
 		tlUpdate = gsap.timeline({ paused: true });
 		tlUpdate
 			.to('.voucher-w-l', {
@@ -113,38 +104,41 @@
 <div class="devouche-c">
 	<div class="voucher-c" class:active>
 		<div class="voucher-scale">
-			<div class="voucher-w voucher-w-l">
-				<div class="voucher-l">
-					<Bg {active} />
-					<h2 class="p-2 flex items-center tracking-[-0.5em] voucher-text">
-						<span class="text-8xl"> - </span>
-						<span class="text-9xl"> 10 </span>
-						<span class="text-7xl ml-2">%</span>
-					</h2>
+			<div class="voucher-rotate voucher-rotate-l">
+				<div class="voucher-w voucher-w-l">
+					<div class="voucher-l">
+						<Bg {active} />
+						<h2 class="p-2 flex items-center tracking-[-0.5em] voucher-text">
+							<span class="text-8xl"> - </span>
+							<span class="text-9xl"> 10 </span>
+							<span class="text-7xl ml-2">%</span>
+						</h2>
+					</div>
+					<div class="voucher-circle-c voucher-circle-c-l">
+						<div class="voucher-circle" />
+					</div>
+					<ul class="voucher-cut voucher-cut-l">
+						{#each new Array(20).fill(0) as item}
+							<li />
+						{/each}
+					</ul>
 				</div>
-				<div class="voucher-circle-c voucher-circle-c-l">
-					<div class="voucher-circle" />
-				</div>
-				<ul class="voucher-cut voucher-cut-l">
-					{#each new Array(20).fill(0) as item}
-						<li />
-					{/each}
-				</ul>
 			</div>
-
-			<div class="voucher-w voucher-w-r">
-				<div class="voucher-r">
-					<Bg {active} />
-					<Tear />
+			<div class="voucher-rotate voucher-rotate-r">
+				<div class="voucher-w voucher-w-r">
+					<div class="voucher-r">
+						<Bg {active} />
+						<Tear />
+					</div>
+					<div class="voucher-circle-c voucher-circle-c-r">
+						<div class="voucher-circle" />
+					</div>
+					<ul class="voucher-cut voucher-cut-r">
+						{#each new Array(20).fill(0) as item}
+							<li />
+						{/each}
+					</ul>
 				</div>
-				<div class="voucher-circle-c voucher-circle-c-r">
-					<div class="voucher-circle" />
-				</div>
-				<ul class="voucher-cut voucher-cut-r">
-					{#each new Array(20).fill(0) as item}
-						<li />
-					{/each}
-				</ul>
 			</div>
 		</div>
 	</div>
@@ -170,16 +164,28 @@
 			perspective: 600px;
 		}
 		&-scale {
-			@apply h-full w-full flex items-center justify-center;
+			@apply will-change-transform h-full w-full flex items-center justify-center;
+			transform-style: preserve-3d;
+		}
+		&-rotate {
+			@apply will-change-transform h-full;
+			transform-style: preserve-3d;
+			&-l {
+				@apply w-[70%] origin-[30%];
+			}
+			&-r {
+				@apply w-[30%] origin-[70%];
+			}
 		}
 
 		&-w {
-			@apply h-full overflow-hidden relative;
+			@apply h-full relative overflow-hidden;
+			transform-style: preserve-3d;
 			&-l {
-				@apply w-[70%] origin-[100%_100%];
+				@apply origin-[100%_100%] ml-auto;
 			}
 			&-r {
-				@apply -ml-[1px] w-[30%] origin-[0%_100%];
+				@apply -ml-[1px] origin-[0%_100%] mr-auto;
 			}
 		}
 
