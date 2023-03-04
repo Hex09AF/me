@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Case from './SelectedCase/Case.svelte';
-	import foodeliveImg from "../assets/project/foodelive.png"
+	import foodeliveImg from '../assets/project/foodelive.png';
 	const listProject = [
 		{
 			title: 'Foodelive',
@@ -21,7 +21,7 @@
 		{
 			title: 'Sudoku',
 			role: 'Frontend developer',
-			description: 'Spend wise time to get the voucher you deserve no matter where you are',
+			description: 'A version of fast chess in sudoku style',
 			bg: 'bg-teal-500',
 			txt: 'text-teal-400'
 		},

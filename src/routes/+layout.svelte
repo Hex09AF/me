@@ -7,6 +7,10 @@
 	let headerHeight = 0;
 </script>
 
+<svelte:head>
+	<title>Quoc Huy - Developer. Gamer. Lover.</title>
+</svelte:head>
+
 <AppBar
 	class="container mx-auto fixed z-10 w-full left-0 right-0"
 	background="bg-surface-100-900-token"
