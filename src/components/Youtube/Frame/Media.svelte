@@ -42,13 +42,21 @@
 			class="live-media__owner-info flex justify-between items-center mt-3 flex-wrap gap-3 font-medium"
 		>
 			<div class="live-media__owner flex">
-				<Avatar class="mr-3 flex-shrink-0" initials="HX" />
+				<Avatar
+					class="mr-3 flex-shrink-0"
+					initials="HX"
+					background="variant-filled-surface"
+					fill="fill-white"
+				/>
 				<div class="mr-6">
 					<div>Hex</div>
 					<div class="text-xs opacity-60 font-normal">19.9M subscribers</div>
 				</div>
 				<div class="live-media__subscribe flex items-center">
-					<button class="btn btn-sm variant-filled-primary" on:click={isSubscribe.subscribed}>
+					<button
+						class="btn btn-sm variant-filled-surface h-[36px]"
+						on:click={isSubscribe.subscribed}
+					>
 						{$isSubscribe ? 'Subscribed' : 'Subscribe'}
 					</button>
 				</div>
@@ -58,7 +66,7 @@
 				<div class="live-media__basic flex items-center">
 					<LottieLike />
 					<div class="ml-2">
-						<button class="btn btn-sm variant-filled-surface"> Share </button>
+						<button class="btn btn-sm variant-filled-surface h-[36px]"> Share </button>
 					</div>
 				</div>
 			</div>

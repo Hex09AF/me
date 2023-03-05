@@ -23,6 +23,16 @@
 				});
 			}
 		});
+
+		gsap.to('.header-blur', {
+			scrollTrigger: {
+				trigger: '.header-blur',
+				start: '+=80 top',
+				end: '+=80',
+				scrub: 1
+			},
+			opacity: 1
+		});
 	});
 </script>
 

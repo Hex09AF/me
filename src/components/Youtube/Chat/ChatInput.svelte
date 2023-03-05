@@ -6,7 +6,12 @@
 </script>
 
 <div class="live-chat__message">
-	<Avatar class="live-chat__avatar" initials="JD" width="w-7" />
+	<Avatar
+		class="live-chat__avatar shrink-0 mr-4"
+		initials="JD"
+		width="w-7"
+		background="bg-stone-200 dark:bg-surface-400"
+	/>
 	<div class="live-chat__input-container">
 		<div class="live-chat__author">Author</div>
 		<div class="live-chat__input-wrapper">
@@ -31,9 +36,6 @@
 </div>
 
 <style lang="postcss">
-	:global(.live-chat__avatar) {
-		@apply shrink-0 mr-4;
-	}
 	.live-chat {
 		&__message {
 			@apply flex items-start py-4 px-6;

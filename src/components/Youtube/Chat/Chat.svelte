@@ -46,9 +46,11 @@
 </script>
 
 <div class="live-chat lg:flex-1">
-	<div class="live-chat__wrapper dark:bg-surface-500">
+	<div class="live-chat__wrapper dark:bg-surface-500 border-gray-200 dark:border-surface-500">
 		<div class="live-chat__header">Live Chat</div>
-		<div class="live-chat__body bg-gray-200	 dark:bg-surface-700">
+		<div
+			class="live-chat__body bg-stone-50  dark:bg-surface-700 border border-gray-200 dark:border-surface-500 border-x-0"
+		>
 			{#each messages as message}
 				<Message {...message} />
 			{/each}
@@ -64,7 +66,7 @@
 		@apply h-[80vh] flex rounded-xl;
 
 		&__wrapper {
-			@apply flex flex-col flex-1 rounded-xl border border-surface-500;
+			@apply flex flex-col flex-1 rounded-xl border;
 		}
 
 		&__header {
