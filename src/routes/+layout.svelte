@@ -3,6 +3,7 @@
 	import '@skeletonlabs/skeleton/styles/all.css';
 	import '@skeletonlabs/skeleton/themes/theme-crimson.css';
 	import '../app.postcss';
+	import NavLink from '../components/NavLink/NavLink.svelte';
 </script>
 
 <svelte:head>
@@ -24,11 +25,15 @@
 		</a>
 	</svelte:fragment>
 	<svelte:fragment slot="trail">
-		<ul>
+		<ul class="flex gap-3">
 			<li>
-				<a href="/"> About </a>
-				<a href="/"> Works </a>
-				<a href="/"> Contact </a>
+				<NavLink content="About" href="/" />
+			</li>
+			<li>
+				<NavLink content="Works" href="/" />
+			</li>
+			<li>
+				<NavLink content="Contact" href="/" />
 			</li>
 		</ul>
 		<LightSwitch />
