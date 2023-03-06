@@ -13,7 +13,8 @@
 		'youtu.be/jfKfPfyJRdk',
 		'thachtran.com',
 		'hoang.moe',
-		'joshwcomeau.com'
+		'joshwcomeau.com',
+		'www.deso.com'
 	];
 </script>
 

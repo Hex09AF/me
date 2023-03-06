@@ -20,6 +20,8 @@
 			isStarted = !isStarted;
 		}
 	};
+
+	let isDislike: boolean;
 </script>
 
 {#await promise then LottiePlayer}
@@ -49,8 +51,12 @@
 			</div>
 			199K
 		</button>
-		<button class="btn btn-sm variant-filled-surface rounded-none rounded-r-full">
-			<div class="icon__limit dislike">
+		<button
+			class="group btn btn-sm variant-filled-surface rounded-none rounded-r-full"
+			class:active={isDislike}
+			on:click={() => (isDislike = !isDislike)}
+		>
+			<div class="icon__limit dislike group-[.active]:rotate-180 transition-transform flip">
 				<Dislike />
 			</div>
 		</button>

@@ -1,6 +1,8 @@
 <script lang="ts">
 	import ProjectCard from './ProjectCard.svelte';
 	import authImg from '../../assets/project/auth.png';
+	import paymentImg from '../../assets/project/payment.png';
+	import detailImg from '../../assets/project/detail.png';
 	import Devouch from './Devouch/Devouch.svelte';
 
 	export let isOdd = false;
@@ -42,6 +44,40 @@
 							</div>
 						</div>
 					</div>
+
+					<div class="absolute card-info payment">
+						<div class="relative w-full h-full">
+							<div class="card-info__text">Payment</div>
+							<span
+								class="card-ping top-0 left-0 animate-[ping_2s_ease-in-out_infinite] absolute inline-flex h-full w-full bg-neutral-700 opacity-70"
+							/>
+							<div
+								class="w-full h-full absolute flex text-xs justify-center items-center leading-[0.15]"
+							>
+								+
+							</div>
+							<div class="card-info__image">
+								<img src={paymentImg} alt="payment" />
+							</div>
+						</div>
+					</div>
+
+					<div class="absolute card-info detail">
+						<div class="relative w-full h-full">
+							<div class="card-info__text">Detail</div>
+							<span
+								class="card-ping top-0 left-0 animate-[ping_2s_ease-in-out_infinite] absolute inline-flex h-full w-full bg-neutral-700 opacity-70"
+							/>
+							<div
+								class="w-full h-full absolute flex text-xs justify-center items-center leading-[0.15]"
+							>
+								+
+							</div>
+							<div class="card-info__image">
+								<img src={detailImg} alt="payment" />
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		{/if}
@@ -52,6 +88,23 @@
 </div>
 
 <style lang="postcss">
+	.card-info.detail {
+		top: unset;
+		bottom: 22%;
+		left: 2%;
+		&:hover {
+			width: 140px;
+			height: 120px;
+		}
+	}
+	.card-info.payment {
+		top: 37%;
+		right: 5%;
+		&:hover {
+			width: 120px;
+			height: 100px;
+		}
+	}
 	.card-info {
 		height: 20px;
 		width: 20px;

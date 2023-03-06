@@ -1,11 +1,12 @@
 <script lang="ts">
 	export let title: string = '';
-	export let role: string = '';
+	export let role: string[] = [''];
 	export let description: string = '';
 	export let onDetail: any;
-	const marqueeRole = new Array(10)
+	const joinRole = role.join(' • ');
+	const marqueeRole = new Array(2)
 		.fill(0)
-		.map(() => role)
+		.map(() => joinRole)
 		.join(' • ');
 </script>
 
@@ -14,8 +15,8 @@
 	<div class="text-2xl mb-2 mix-blend-difference text-white">
 		<div class="marquee absolute">
 			<div class="marquee-inner">
-				<span class="marquee-left"> {marqueeRole} {' • '}</span>
-				<span class="marquee-right"> {marqueeRole} {' • '}</span>
+				<span class="marquee-left whitespace-pre"> {marqueeRole} {' • '}</span>
+				<span class="marquee-right whitespace-pre"> {marqueeRole} {' • '}</span>
 			</div>
 		</div>
 	</div>
