@@ -5,12 +5,11 @@
 </script>
 
 <section>
-	<div class="text-3xl">
-		<div>LET'S</div>
-		<div>CONNECT</div>
+	<div class="text-3xl text-center mb-5">
+		<div>Let's connect</div>
 	</div>
 
-	<div class="flex items-center justify-center">
+	<div class="flex items-center justify-center py-10">
 		<a
 			href="mailto:hex09af.dev@gmail.com?subject=🤝%20Project%20info.%20Let's%20talk"
 			class="gmail mr-4 glow inline-flex items-center gap-4 p-2 px-4"
