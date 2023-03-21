@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { clipboard } from '@skeletonlabs/skeleton';
+	import { createEventDispatcher } from 'svelte';
 	import lottieLikeBtn from '../../../../assets/lottie/like-btn.json';
-	import Dislike from '../../../../assets/Dislike.svelte';
+
 	const getLottie = async () => {
 		const module = await import('@lottiefiles/svelte-lottie-player');
 		return module.LottiePlayer;
@@ -22,6 +24,19 @@
 	};
 
 	let isDislike: boolean;
+
+	const dispatch = createEventDispatcher();
+
+	let copyState = false;
+
+	function onCopyClick() {
+		if (copyState) return;
+		copyState = true;
+		setTimeout(() => {
+			copyState = false;
+		}, 2000);
+		dispatch('copy', {});
+	}
 </script>
 
 {#await promise then LottiePlayer}
@@ -49,16 +64,20 @@
 					</div>
 				</div>
 			</div>
-			199K
+			Like it
 		</button>
 		<button
 			class="group btn btn-sm variant-filled-surface rounded-none rounded-r-full"
 			class:active={isDislike}
-			on:click={() => (isDislike = !isDislike)}
+			on:click={onCopyClick}
+			use:clipboard={'http://localhost:5173'}
 		>
-			<div class="icon__limit dislike group-[.active]:rotate-180 transition-transform flip">
-				<Dislike />
-			</div>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 mr-2 fill-white">
+				<path
+					d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H304v64c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224c0-8.8 7.2-16 16-16h64V160H64z"
+				/>
+			</svg>
+			{copyState ? '👍🎉🥰' : 'Share link'}
 		</button>
 	</div>
 {/await}

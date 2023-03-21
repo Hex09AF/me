@@ -1,5 +1,5 @@
 const TOTAL_TIME = 50;
-const TOTAL_FRAME = 4;
+const TOTAL_FRAME = 3;
 const SECOND_PER_FRAME = TOTAL_TIME / TOTAL_FRAME;
 
 const FRAME_INFO = {
@@ -13,18 +13,15 @@ const FRAME_INFO = {
 		finish: SECOND_PER_FRAME * 2,
 		name: 'Learning'
 	},
-	REST: {
+	CREDIT: {
 		start: SECOND_PER_FRAME * 2,
 		finish: SECOND_PER_FRAME * 3,
-		name: 'Stretch nyan'
-	},
-	CREDIT: {
-		start: SECOND_PER_FRAME * 3,
-		finish: SECOND_PER_FRAME * 4,
 		name: 'Credit'
 	}
 };
 
 type KeyFrameInfo = keyof typeof FRAME_INFO;
 
-export { FRAME_INFO, TOTAL_TIME, TOTAL_FRAME, SECOND_PER_FRAME, KeyFrameInfo };
+export type { KeyFrameInfo };
+
+export { FRAME_INFO, TOTAL_TIME, TOTAL_FRAME, SECOND_PER_FRAME };

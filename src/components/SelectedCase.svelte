@@ -71,7 +71,7 @@
 				'HTTP/HTTPS',
 				'Heroku'
 			],
-			description: 'A version of fast chess in sudoku style',
+			description: 'Where we can train our mind. Play with friends. May the force be with you!',
 			bg: 'bg-teal-500',
 			txt: 'text-teal-400'
 		},
@@ -94,14 +94,14 @@
 				'Husky Lint Prettier',
 				'Code splitting'
 			],
-			description: 'Spend wise time to get the voucher you deserve no matter where you are',
+			description: 'A platform built in company that have courses to level up your skill',
 			bg: 'bg-sky-500',
 			txt: 'text-sky-400'
 		}
 	];
 </script>
 
-<section class="my-10">
+<section id="projects" class="my-10">
 	{#each listProject as item, idx}
 		{@const isOdd = idx % 2 == 1}
 		<Case {isOdd} {item} />

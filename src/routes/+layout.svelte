@@ -17,23 +17,21 @@
 >
 	<svelte:fragment slot="lead">
 		<a href="/">
-			<div class="uppercase font-bold leading-[1] text-xs text-center">
-				<div>Quoc Hex Hex</div>
-				<div>Hex Hex Hex</div>
-				<div>Hex Hex Huy</div>
+			<div class="uppercase font-bold leading-[1] text-sm text-center">
+				<div>Quochuy.dev</div>
 			</div>
 		</a>
 	</svelte:fragment>
 	<svelte:fragment slot="trail">
 		<ul class="flex gap-3">
 			<li>
-				<NavLink content="About" href="/" />
+				<NavLink content="About" href="#about" />
 			</li>
 			<li>
-				<NavLink content="Works" href="/" />
+				<NavLink content="Projects" href="#projects" />
 			</li>
 			<li>
-				<NavLink content="Contact" href="/" />
+				<NavLink content="Contact" href="#contact" />
 			</li>
 		</ul>
 		<LightSwitch />

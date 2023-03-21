@@ -226,6 +226,7 @@
 
 	.content-item {
 		position: relative;
+		height: 500px;
 	}
 	.content-item::before {
 		content: '';

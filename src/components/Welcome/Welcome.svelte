@@ -2,7 +2,7 @@
 	import gsap from 'gsap';
 	import { onMount } from 'svelte';
 	import CircleText from './CircleText.svelte';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
