@@ -12,18 +12,23 @@
 <div class="live-media__toolbar">
 	<div class="progress-bar">
 		<div class="progress-bar__chapter-container">
-			{#each scenceAr as item, index}
+			{#each scenceAr as item}
 				<Progress
+					totalTime={FRAME_INFO[item].sceneTime}
 					item={FRAME_INFO[item].name}
-					scale={frameSecond.scaleInfo($frameSecond, index)}
-					{index}
+					startTime={FRAME_INFO[item].start}
+					scale={frameSecond.scaleInfo(
+						$frameSecond,
+						FRAME_INFO[item].sceneTime,
+						FRAME_INFO[item].start
+					)}
 				/>
 			{/each}
 		</div>
 	</div>
 	<div class="controls-bar py-2 px-1">
 		<div class="text-xs">
-			{videoTimeFormat($frameSecond)} / {videoTimeFormat(50)} • {$frame}
+			{videoTimeFormat($frameSecond)} / {videoTimeFormat(TOTAL_TIME)} • {$frame}
 		</div>
 	</div>
 </div>

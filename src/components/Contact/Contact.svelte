@@ -5,7 +5,7 @@
 
 <section
 	id="contact"
-	class="contact-c h-screen grid place-content-center grid-cols-[1.5fr_2fr] gap-12"
+	class="contact-c h-screen grid place-content-center grid-cols-[1fr_2fr] gap-12"
 >
 	<div class="contact-image-c relative h-50%">
 		<img
@@ -24,8 +24,9 @@
 
 	<div class="mb-5 h-screen flex flex-col justify-center">
 		<div class="text-9xl uppercase font-medium">
-			<div class="text-red-500">Work</div>
-			<div>With me</div>
+			<div class="text-red-500">Let's</div>
+			<div class="text-create text-9xl">Create</div>
+			<div>Together</div>
 		</div>
 		<div class="mt-4">
 			Email me
@@ -45,6 +46,40 @@
 </section>
 
 <style lang="postcss">
+	:root {
+		--color-1: #186cb8;
+		--color-2: #2a9a9f;
+		--color-3: #f1b211;
+		--color-4: #e83611;
+		--color-5: #f9002f;
+	}
+
+	.text-create {
+		width: min-content;
+		background: linear-gradient(
+			219deg,
+			var(--color-1) 19%,
+			transparent 19%,
+			transparent 20%,
+			var(--color-2) 20%,
+			var(--color-2) 39%,
+			transparent 39%,
+			transparent 40%,
+			var(--color-3) 40%,
+			var(--color-3) 59%,
+			transparent 59%,
+			transparent 60%,
+			var(--color-4) 60%,
+			var(--color-4) 79%,
+			transparent 79%,
+			transparent 80%,
+			var(--color-5) 80%
+		);
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+	}
+
 	.contact-image-c {
 		img {
 			visibility: hidden;

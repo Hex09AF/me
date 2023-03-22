@@ -11,7 +11,7 @@
 </svelte:head>
 
 <AppBar
-	class="container mx-auto fixed z-10 w-full left-0 right-0 pb-4"
+	class="container mx-auto fixed z-10 top-0 left-0 right-0 h-[80px] justify-center"
 	background="bg-surface-100-900-token"
 	shadow="shadow-none"
 >
@@ -23,15 +23,15 @@
 		</a>
 	</svelte:fragment>
 	<svelte:fragment slot="trail">
-		<ul class="flex gap-3">
+		<ul class="flex gap-5">
 			<li>
-				<NavLink content="About" href="#about" />
+				<NavLink content="About" href="#about" icon="🙋‍♂️" />
 			</li>
 			<li>
-				<NavLink content="Projects" href="#projects" />
+				<NavLink content="Projects" href="#projects" icon="🧑‍💻" />
 			</li>
 			<li>
-				<NavLink content="Contact" href="#contact" />
+				<NavLink content="Contact" href="#contact" icon="🙌" />
 			</li>
 		</ul>
 		<LightSwitch />
@@ -39,7 +39,7 @@
 	<div class="header-blur w-[200vw] -left-1/2" />
 </AppBar>
 
-<div class={`mx-auto pt-[80px]`}>
+<div class={`mx-auto`}>
 	<slot />
 </div>
 

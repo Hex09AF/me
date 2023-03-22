@@ -1,8 +1,11 @@
-<script>
+<script lang="ts">
 	import gsap from 'gsap';
 	import { onMount } from 'svelte';
 	import CircleText from './CircleText.svelte';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+	import { frameSecond } from '../../store/frame/frame';
+
+	let tl: gsap.core.Timeline;
 
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
@@ -14,8 +17,10 @@
 		const inText = 1;
 		const outText = 1;
 
-		const tl = gsap
-			.timeline()
+		tl = gsap
+			.timeline({
+				paused: true
+			})
 			// Slower than text
 			.to(
 				'#circle-welcome',
@@ -97,6 +102,12 @@
 		// 	pin: true
 		// });
 	});
+
+	$: {
+		if (tl && $frameSecond <= 7) {
+			tl.seek($frameSecond);
+		}
+	}
 </script>
 
 <section class="z-20 uppercase font-bold leading-[1] h-[100%]">

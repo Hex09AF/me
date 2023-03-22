@@ -1,23 +1,23 @@
 <script lang="ts">
-	import { SECOND_PER_FRAME } from '../../../../store/frame/constant';
+	import { TOTAL_TIME } from '../../../../store/frame/constant';
 	import { spring } from 'svelte/motion';
 	import { fade } from 'svelte/transition';
 	import { frameSecond } from '../../../../store/frame/frame';
 
 	export let item: string = '';
 	export let scale: number = 0;
-	export let index: number;
+	export let startTime: number;
+	export let totalTime: number = 5;
 
 	let isShowPreview = false;
-	let coords = spring({ x: 50 }, { stiffness: 1, damping: 1 });
+	let coords = spring({ x: TOTAL_TIME }, { stiffness: 1, damping: 1 });
 </script>
 
-<div class="progress-bar__chapter">
+<div class="progress-bar__chapter" style={`--chapter-percent: ${(totalTime * 100) / TOTAL_TIME}%`}>
 	<button
 		on:click={(e) => {
 			frameSecond.handleClickProgress(
-				index,
-				(SECOND_PER_FRAME / e.currentTarget.offsetWidth) * e.offsetX
+				startTime + (totalTime / e.currentTarget.offsetWidth) * e.offsetX
 			);
 		}}
 		on:mouseenter={() => (isShowPreview = true)}
@@ -51,7 +51,7 @@
 	.progress-bar {
 		&__chapter {
 			@apply float-left h-full relative;
-			width: calc((100% - 4px) / 3);
+			width: calc(var(--chapter-percent) - 2px);
 			margin-right: 2px;
 			&:last-child {
 				margin-right: 0;

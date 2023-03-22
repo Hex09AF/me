@@ -10,7 +10,7 @@
 <div class="live-chat__message mt-1">
 	<Avatar
 		class="live-chat__avatar shrink-0 mr-4"
-		initials={author}
+		initials="☁️☁️☁️"
 		width="w-7"
 		background="bg-stone-200 dark:bg-surface-400"
 	/>

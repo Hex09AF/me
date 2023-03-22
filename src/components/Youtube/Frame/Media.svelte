@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Avatar } from '@skeletonlabs/skeleton';
 	import { FRAME_INFO } from '../../../store/frame/constant';
 	import { frame } from '../../../store/frame/frame';
 	import Welcome from '../../Welcome/Welcome.svelte';

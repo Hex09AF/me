@@ -1,21 +1,24 @@
-const TOTAL_TIME = 50;
+const TOTAL_TIME = 42;
 const TOTAL_FRAME = 3;
 const SECOND_PER_FRAME = TOTAL_TIME / TOTAL_FRAME;
 
 const FRAME_INFO = {
 	INTRO: {
+		sceneTime: 7,
 		start: 0,
-		finish: SECOND_PER_FRAME,
+		finish: 7,
 		name: 'Intro'
 	},
 	LEARNING: {
-		start: SECOND_PER_FRAME,
-		finish: SECOND_PER_FRAME * 2,
+		sceneTime: 15,
+		start: 7,
+		finish: 22,
 		name: 'Learning'
 	},
 	CREDIT: {
-		start: SECOND_PER_FRAME * 2,
-		finish: SECOND_PER_FRAME * 3,
+		sceneTime: 20,
+		start: 22,
+		finish: 42,
 		name: 'Credit'
 	}
 };

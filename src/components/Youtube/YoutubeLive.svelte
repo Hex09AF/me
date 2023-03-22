@@ -3,7 +3,7 @@
 	import Media from './Frame/Media.svelte';
 </script>
 
-<section id="about" class="pt-14 h-screen">
+<section id="about" class="pt-[80px] h-screen">
 	<div class="live-container flex-col lg:flex-row">
 		<Media />
 		<Chat />

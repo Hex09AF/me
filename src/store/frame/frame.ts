@@ -9,19 +9,14 @@ function createFrameSecond() {
 		easing: linear
 	});
 
-	const scenceAr = Object.keys(FRAME_INFO);
-	const timePerScence = TOTAL_TIME / scenceAr.length;
-	const ratio = 1 / timePerScence;
-
 	return {
 		subscribe,
 		set,
 		update,
-		scaleInfo(second: number, index: number) {
-			return Math.max(0, Math.min(second - timePerScence * index, timePerScence)) * ratio;
+		scaleInfo(second: number, sceneTime: number, preTime: number) {
+			return Math.max(0, Math.min(second - preTime, sceneTime)) * (1 / sceneTime);
 		},
-		handleClickProgress(index: number, calSec: number) {
-			const curSec = index * timePerScence + calSec;
+		handleClickProgress(curSec: number) {
 			set(curSec, {
 				duration: 0
 			});
