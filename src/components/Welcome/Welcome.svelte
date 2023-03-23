@@ -132,32 +132,29 @@
 		</section>
 
 		<section id="section-text" class="absolute top-0 w-full h-full overflow-hidden">
-			<div
-				id="circle-text"
-				class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-500"
-			/>
+			<div id="circle-text" class="absolute top-1/2 left-1/2 rounded-full bg-amber-500" />
 			<div class="relative w-full h-full">
 				<div
 					id="fs-text"
-					class="origin-center opacity-0 w-[25%] h-[25%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+					class="origin-center opacity-0 w-[250px] h-[250px] absolute top-1/2 left-1/2"
 				>
 					<CircleText fillColor="fill-amber-600" />
 				</div>
 				<div
 					id="sc-text"
-					class="origin-center opacity-0 w-[55%] h-[55%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+					class="origin-center opacity-0 w-[550px] h-[550px] absolute top-1/2 left-1/2"
 				>
 					<CircleText />
 				</div>
 				<div
 					id="tr-text"
-					class="origin-center opacity-0 w-[95%] h-[95%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+					class="origin-center opacity-0 w-[950px] h-[950px] absolute top-1/2 left-1/2"
 				>
 					<CircleText fillColor="fill-amber-600" />
 				</div>
 				<div
 					id="qd-text"
-					class="origin-center opacity-0 w-[150%] h-[150%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+					class="origin-center opacity-0 w-[1500px] h-[1500px] absolute top-1/2 left-1/2"
 				>
 					<CircleText />
 				</div>
@@ -167,6 +164,15 @@
 </section>
 
 <style>
+	#circle-text,
+	#fs-text,
+	#sc-text,
+	#tr-text,
+	#qd-text {
+		transform: translate(-50%, -50%);
+		transform-origin: center;
+	}
+
 	#fs-welcome,
 	#tr-welcome {
 		transform: translate3d(-100%, 0, 0);

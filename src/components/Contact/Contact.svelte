@@ -35,11 +35,11 @@
 				href="mailto:lsqhuy@gmail.com?subject=🤝%20Project%20info.%20Let's%20talk"
 				class="unstyled gmail"
 			>
-				<span>lsqhuy@gmail.com</span>
+				<span class="text-draw">lsqhuy@gmail.com</span>
 			</a>
 			or find me on
 			<a id="contact-github" href="https://github.com/Hex09AF" class="unstyled github">
-				github/hex09af
+				<span class="text-draw"> github/hex09af </span>
 			</a>
 		</div>
 	</div>

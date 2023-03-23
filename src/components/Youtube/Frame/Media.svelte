@@ -9,7 +9,7 @@
 	import Toolbar from './Tool/Toolbar.svelte';
 </script>
 
-<div class="live-media lg:flex-[2.4]">
+<div class="live-media lg:flex-[2.9]">
 	<div class="live-media__container">
 		<div class="live-media__content w-full h-full relative">
 			{#if $frame === FRAME_INFO.INTRO.name}
@@ -18,8 +18,10 @@
 					id="scrollWrapper"
 				>
 					<Welcome />
-					<!-- <Intro /> -->
 				</div>
+			{/if}
+			{#if $frame === FRAME_INFO.ABOUT.name}
+				<Intro />
 			{/if}
 			{#if $frame === FRAME_INFO.LEARNING.name}
 				<Tech />
@@ -50,7 +52,7 @@
 		@apply h-full;
 
 		&__container {
-			@apply aspect-video relative;
+			@apply aspect-[16/10] relative;
 			max-width: 100%;
 			max-height: 100%;
 
