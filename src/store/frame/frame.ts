@@ -20,10 +20,10 @@ function createFrameSecond() {
 			set(curSec, {
 				duration: 0
 			});
-			// set(TOTAL_TIME, {
-			// 	duration: (TOTAL_TIME - curSec) * 1000,
-			// 	easing: linear
-			// });
+			set(TOTAL_TIME, {
+				duration: (TOTAL_TIME - curSec) * 1000,
+				easing: linear
+			});
 		}
 	};
 }
