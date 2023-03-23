@@ -18,7 +18,7 @@
 	receiveShadow
 	scale={0.5}
 	url="/models/key_chain/scene.gltf"
-	useMeshopt={true}
+	useDraco={true}
 />
 
 <T.Mesh receiveShadow rotation.x={degToRad(-90)}>
