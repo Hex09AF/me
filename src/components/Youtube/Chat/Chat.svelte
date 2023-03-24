@@ -1,46 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import MessageService from '../../../services/message';
-	import randBetween from '../../../utils/rand';
-	import { chatTimeFormat } from '../../../utils/time';
-	import wait from '../../../utils/wait';
+	import { chatMessage } from '../../../store/chat';
 	import Message from './Message.svelte';
 
-	let messages: any = [];
-
-	async function chat(mess: any) {
-		const authors = Object.keys(mess);
-		for (let i = 0; i < authors.length; ++i) {
-			const message = {
-				author: authors[i],
-				message: mess[authors[i]],
-				time: chatTimeFormat()
-			};
-			if (i) {
-				const waitTime = randBetween(1, 3) * 1000;
-				await wait(waitTime);
-			}
-			messages = [...messages, message];
-		}
-	}
-
-	async function autoChat(groupMessage: any) {
-		for (let i = 0; i < groupMessage.length; ++i) {
-			if (i) {
-				const waitTime = randBetween(5, 10) * 1000;
-				await wait(waitTime);
-			}
-			await chat(groupMessage[i]);
-		}
-	}
-
-	async function getAllMessages() {
-		const groupMessage: any = await MessageService.getAllMessages();
-		autoChat(groupMessage);
-	}
-
 	onMount(() => {
-		getAllMessages();
+		chatMessage.getAllMessages();
 	});
 </script>
 
@@ -50,7 +14,7 @@
 		<div
 			class="live-chat__body bg-stone-50  dark:bg-surface-700 border border-gray-200 dark:border-surface-500 border-x-0"
 		>
-			{#each messages as message}
+			{#each $chatMessage as message}
 				<Message {...message} />
 			{/each}
 		</div>

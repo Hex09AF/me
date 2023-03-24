@@ -35,7 +35,7 @@
 			@apply inline mr-2 text-xs opacity-40;
 		}
 		&__author {
-			@apply inline-flex mr-2 text-xs opacity-70 font-medium;
+			@apply inline-flex mr-2 text-xs font-medium text-gray-300;
 		}
 		&__text {
 			@apply break-words text-sm leading-4;
