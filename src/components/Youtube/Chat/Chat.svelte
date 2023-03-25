@@ -8,11 +8,13 @@
 	});
 </script>
 
-<div class="live-chat lg:flex-1">
-	<div class="live-chat__wrapper dark:bg-surface-500 border-gray-200 dark:border-surface-500">
+<div class="live-chat w-full flex rounded-xl">
+	<div
+		class="live-chat__wrapper dark:bg-surface-500 border-gray-200 dark:border-surface-500 overflow-hidden"
+	>
 		<div class="live-chat__header">My random thoughts</div>
 		<div
-			class="live-chat__body bg-stone-50  dark:bg-surface-700 border border-gray-200 dark:border-surface-500 border-x-0"
+			class="live-chat__body bg-stone-50  dark:bg-surface-700 border border-gray-200 dark:border-surface-500 border-x-0 border-b-0"
 		>
 			{#each $chatMessage as message}
 				<Message {...message} />
@@ -23,8 +25,6 @@
 
 <style lang="postcss">
 	.live-chat {
-		@apply flex rounded-xl;
-
 		&__wrapper {
 			@apply flex flex-col flex-1 rounded-xl border;
 		}

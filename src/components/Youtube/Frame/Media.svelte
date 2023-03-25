@@ -9,7 +9,7 @@
 	import Toolbar from './Tool/Toolbar.svelte';
 </script>
 
-<div class="live-media lg:flex-[2.9]">
+<div class="live-media">
 	<div class="live-media__container">
 		<div class="live-media__content w-full h-full relative">
 			{#if $frame === FRAME_INFO.INTRO.name}
@@ -35,7 +35,7 @@
 	<div class="live-media__metadata mt-4">
 		<div class="live-media__owner-info flex justify-between items-center mt-3 flex-wrap gap-3">
 			<div class="live-media__owner flex">
-				<h4 class="live-media__title">A day in the life of a software engineer</h4>
+				<h4 class="live-media__title">About me</h4>
 			</div>
 
 			<div class="live-media__actions flex">
