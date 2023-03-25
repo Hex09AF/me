@@ -55,7 +55,7 @@ function createChatMessage() {
 				...messages,
 				{
 					author: '🥳',
-					message: 'Nice',
+					message: 'Nice drop "tech"',
 					time: chatTimeFormat()
 				}
 			]);

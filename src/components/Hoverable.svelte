@@ -1,6 +1,6 @@
 <script lang="ts">
 	let hovering: boolean;
-	let timeout: NodeJS.Timeout | null;
+	let timeout: number | null;
 
 	function enter() {
 		if (timeout) return;
