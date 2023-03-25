@@ -1,11 +1,21 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import { chatMessage } from '../../../store/chat';
 	import Message from './Message.svelte';
 
 	onMount(() => {
 		chatMessage.getAllMessages();
 	});
+
+	let liveChatBody: HTMLDivElement;
+
+	const unsubscribeScrollBottom = chatMessage.subscribe(() => {
+		setTimeout(() => {
+			if (liveChatBody) liveChatBody.scrollTop = liveChatBody.scrollHeight;
+		}, 0);
+	});
+
+	onDestroy(unsubscribeScrollBottom);
 </script>
 
 <div class="live-chat w-full flex rounded-xl">
@@ -14,7 +24,8 @@
 	>
 		<div class="live-chat__header">My random thoughts</div>
 		<div
-			class="live-chat__body bg-stone-50  dark:bg-surface-700 border border-gray-200 dark:border-surface-500 border-x-0 border-b-0"
+			bind:this={liveChatBody}
+			class="live-chat__body bg-stone-50 dark:bg-surface-700 border border-gray-200 dark:border-surface-500 border-x-0 border-b-0 pb-4"
 		>
 			{#each $chatMessage as message}
 				<Message {...message} />

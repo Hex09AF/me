@@ -32,7 +32,7 @@ function createChatMessage() {
 	async function autoChat(groupMessage: any) {
 		for (let i = 0; i < groupMessage.length; ++i) {
 			if (i) {
-				const waitTime = randBetween(5, 10) * 1000;
+				const waitTime = randBetween(3, 5) * 1000;
 				await wait(waitTime);
 			}
 			await chat(groupMessage[i]);
