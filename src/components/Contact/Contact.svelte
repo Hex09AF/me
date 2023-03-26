@@ -23,9 +23,9 @@
 	</div>
 
 	<div class="mb-5 h-screen flex flex-col justify-center">
-		<div class="text-9xl uppercase font-medium">
+		<div class="text-3xl md:text-9xl uppercase font-medium">
 			<div class="text-red-500">Let's</div>
-			<div class="text-create text-9xl">Create</div>
+			<div class="text-create">Create</div>
 			<div>Together</div>
 		</div>
 		<div class="mt-4">
