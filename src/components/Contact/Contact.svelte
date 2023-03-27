@@ -9,12 +9,14 @@
 >
 	<div class="contact-image-c relative h-50%">
 		<img
+			loading="lazy"
 			id="contact-gmail-image"
 			class="absolute w-[90%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 			src={Gmail}
 			alt="Gmail"
 		/>
 		<img
+			loading="lazy"
 			id="contact-github-image"
 			class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 contact-github"
 			src={Github}

@@ -2,6 +2,7 @@
 	export let title: string = '';
 	export let role: string[] = [''];
 	export let description: string = '';
+	export let marqueeBg: string = '';
 	export let onDetail: any;
 	const joinRole = role.join(' • ');
 	const marqueeRole = new Array(2)
@@ -10,24 +11,24 @@
 		.join(' • ');
 </script>
 
-<div class="p-10 bg-white text-black isolate min-h-[400px] h-full">
+<div class={`p-10 bg-white text-black isolate min-h-[400px] h-full`}>
 	<h2 class="text-7xl uppercase mb-2">{title}</h2>
-	<div class="text-2xl mb-2 mix-blend-difference text-white">
-		<div class="marquee absolute">
-			<div class="marquee-inner">
-				<span class="marquee-left whitespace-pre"> {marqueeRole} {' • '}</span>
-				<span class="marquee-right whitespace-pre"> {marqueeRole} {' • '}</span>
+	<div class="text-2xl mb-2 text-white">
+		<div class={`marquee absolute ${marqueeBg}`}>
+			<div class="marquee-inner whitespace-pre">
+				<span class="marquee-left"> {marqueeRole} {' • '}</span>
+				<span class="marquee-right"> {marqueeRole} {' • '}</span>
 			</div>
 		</div>
 	</div>
 	<p class="mb-6 mt-12">
 		{description}
 	</p>
-	<button on:click={onDetail} class="btn variant-filled-primary btn-base btn-marquee">
+	<!-- <button on:click={onDetail} class="btn variant-filled-primary btn-base btn-marquee">
 		<div class="btn-marquee-inner">
 			<span data-text="See the detail"> See the detail </span>
 		</div>
-	</button>
+	</button> -->
 </div>
 
 <style>
@@ -60,7 +61,6 @@
 
 	.marquee {
 		left: 0;
-		background: rgb(254 237 0 / 0.3);
 	}
 
 	.marquee .marquee-inner {

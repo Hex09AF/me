@@ -9,7 +9,7 @@
 <style lang="postcss">
 	.pic.pic-large .coffee {
 		background: linear-gradient(45deg, rgb(24 125 138) 45%, rgb(24 125 138) 50%),
-			url(/src/assets/project/coffee-pattern-1.png);
+			url(/src/assets/project/coffee-pattern-1.webp);
 		background-size: 100% 100%, 50% !important;
 	}
 
@@ -27,7 +27,7 @@
 			width: 120%;
 			height: 120%;
 			background: linear-gradient(45deg, rgb(0 165 93) 45%, rgb(24 125 138) 50%),
-				url(/src/assets/project/coffee-pattern-1.png);
+				url(/src/assets/project/coffee-pattern-1.webp);
 			background-blend-mode: overlay, color-dodge;
 			background-position: center;
 			background-size: 100% 100%, 25%;

@@ -1,6 +1,10 @@
 <script lang="ts">
 	import Case from './SelectedCase/Case.svelte';
-	import foodeliveImg from '../assets/project/foodelive.png';
+	import foodeliveImg from '../assets/project/foodelive.webp';
+	import devouchImg from '../assets/project/devouch.webp';
+	import sudokuImg from '../assets/project/sudoku.webp';
+	import elearningImg from '../assets/project/elearning.webp';
+
 	const listProject = [
 		{
 			title: 'Foodelive',
@@ -52,8 +56,9 @@
 				'Deploy'
 			],
 			description: 'Spend wise time to get the voucher you deserve no matter where you are',
-			bg: 'bg-lime-500',
-			txt: 'text-lime-400'
+			bg: 'bg-sky-500',
+			txt: 'text-sky-400',
+			projectImg: devouchImg
 		},
 		{
 			title: 'Sudoku',
@@ -72,8 +77,9 @@
 				'Heroku'
 			],
 			description: 'Where we can train our mind. Play with friends. May the force be with you!',
-			bg: 'bg-teal-500',
-			txt: 'text-teal-400'
+			bg: 'bg-amber-500',
+			txt: 'text-amber-400',
+			projectImg: sudokuImg
 		},
 		{
 			title: 'ELearning',
@@ -95,8 +101,9 @@
 				'Code splitting'
 			],
 			description: 'A platform built in company that have courses to level up your skill',
-			bg: 'bg-sky-500',
-			txt: 'text-sky-400'
+			bg: 'bg-lime-500',
+			txt: 'text-lime-400',
+			projectImg: elearningImg
 		}
 	];
 </script>

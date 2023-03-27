@@ -1,5 +1,5 @@
 <script>
-	import qrImg from '../../../assets/project/qr.png';
+	import qrImg from '../../../assets/project/qr.webp';
 </script>
 
 <div class="relative overflow-hidden">
