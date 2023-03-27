@@ -10,8 +10,43 @@
 	}
 </script>
 
-<div class:isOdd class="content-item grid grid-cols-2 prose rounded-3xl overflow-hidden">
-	<div class:col-start-2={isOdd} class="row-start-1">
+<div
+	class:isOdd
+	class="content-item lg:h-[80vh] grid grid-rows-2 grid-cols-1 lg:grid-rows-1 lg:grid-cols-2 prose rounded-3xl overflow-hidden"
+>
+	<div
+		class:lg:col-start-1={isOdd}
+		class:lg:col-start-2={!isOdd}
+		class={`${item.bg} grow row-start-1 `}
+	>
+		<div
+			class="h-full bg-cover bg-no-repeat bg-center"
+			style="background-image: url('{item.projectImg}')"
+		>
+			<div class="w-full h-full px-4 pt-10 backdrop-brightness-50">
+				<img
+					class="object-contain max-h-[90%] m-auto shadow-[0_0_16px_8px_rgba(0,0,0,0.5)]"
+					src={item.projectImg}
+					alt="project"
+				/>
+			</div>
+		</div>
+	</div>
+
+	<span
+		class="absolute bg-black z-10 left-1/2 -translate-x-1/2 w-[2px] h-full hidden lg:block"
+		aria-hidden="true"
+	/>
+	<span
+		class="absolute bg-black z-10 top-1/2 -translate-y-1/2 h-[2px] w-full block lg:hidden"
+		aria-hidden="true"
+	/>
+
+	<div
+		class:lg:col-start-2={isOdd}
+		class:lg:col-start-1={!isOdd}
+		class="grow row-start-2 lg:row-start-1"
+	>
 		<ProjectCard
 			marqueeBg={item.bg}
 			onDetail={seeDetail}
@@ -20,37 +55,12 @@
 			description={item.description}
 		/>
 	</div>
-	<div class:relative={isDetail} class:col-start-1={isOdd} class={`${item.bg} row-start-1 `}>
-		<div
-			class="h-full bg-cover bg-no-repeat bg-center"
-			style="background-image: url('{item.projectImg}')"
-		>
-			<div class="w-full h-full px-4 pt-10 backdrop-brightness-50">
-				<img
-					class="object-contain max-h-[85%] m-auto shadow-[0_0_16px_8px_rgba(0,0,0,0.5)]"
-					src={item.projectImg}
-					alt="project"
-				/>
-			</div>
-		</div>
-	</div>
 </div>
 
 <style lang="postcss">
 	.content-item {
 		position: relative;
-		height: 80vh;
 		max-height: 1000px;
-	}
-	.content-item::before {
-		content: '';
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		height: 100%;
-		width: 2px;
-		background-color: black;
-		z-index: 10;
 	}
 	.content-item {
 		border: 2px solid black;
