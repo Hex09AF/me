@@ -2,6 +2,7 @@ import JSLogo from '../../assets/tech/javascript.svg';
 import ReactLogo from '../../assets/tech/react.svg';
 import ScssLogo from '../../assets/tech/scss.svg';
 import TSLogo from '../../assets/tech/typescript.svg';
+import SvelteLogo from '../../assets/tech/svelte.svg';
 
 const HEIGHT_MARGIN = 32;
 
@@ -21,6 +22,10 @@ const LIST_TECH = [
 	{
 		title: 'Typescript',
 		img: TSLogo
+	},
+	{
+		title: 'Svelte',
+		img: SvelteLogo
 	}
 ];
 

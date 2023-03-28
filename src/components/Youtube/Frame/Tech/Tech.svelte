@@ -83,14 +83,13 @@
 		);
 
 		const techs = LIST_TECH.map((tech) =>
-			Bodies.circle(randBetween(0, width), 0, width / 30, {
+			Bodies.circle(randBetween(20, width - 20), 0, Math.min(width / 30, 20), {
 				restitution: 0.5,
 				render: {
-					fillStyle: 'red',
 					sprite: {
 						texture: tech.img,
-						xScale: width / 2500,
-						yScale: width / 2500
+						xScale: width >= 750 ? 0.4 : 1,
+						yScale: width >= 750 ? 0.4 : 1
 					}
 				}
 			})
