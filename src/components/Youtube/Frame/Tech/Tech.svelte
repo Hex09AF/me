@@ -55,12 +55,17 @@
 				const length = v % 2 == 0 ? 6 : 7;
 				const xRatio = width / 7;
 				const rows = new Array(length).fill(0).map((_, i) => {
-					return Bodies.circle(xRatio * (i + 1) - (v % 2 ? xRatio / 2 : 0), yRatio * v, 10, {
-						isStatic: true,
-						render: {
-							fillStyle: 'gray'
+					return Bodies.circle(
+						xRatio * (i + 1) - (v % 2 ? xRatio / 2 : 0),
+						yRatio * v,
+						width / 70,
+						{
+							isStatic: true,
+							render: {
+								fillStyle: 'gray'
+							}
 						}
-					});
+					);
 				});
 				return rows;
 			})
@@ -78,13 +83,13 @@
 		);
 
 		const techs = LIST_TECH.map((tech) =>
-			Bodies.circle(randBetween(0, width), 0, 30, {
+			Bodies.circle(randBetween(0, width), 0, width / 30, {
 				restitution: 0.5,
 				render: {
 					sprite: {
 						texture: tech.img,
-						xScale: 0.3,
-						yScale: 0.3
+						xScale: width / 30 / 100,
+						yScale: width / 30 / 100
 					}
 				}
 			})

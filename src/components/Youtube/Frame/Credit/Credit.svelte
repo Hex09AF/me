@@ -23,23 +23,20 @@
 <div class="w-full h-full">
 	<div class="flex flex-col w-full justify-center h-full overflow-hidden">
 		<div in:fly={{ y: h, duration: 5000 }} bind:clientHeight={h}>
-			<div class="grid grid-cols-3 gap-2">
-				<div class="text-center col-span-1 col-start-1">❤️ Inspired by:</div>
-				<div class="col-span-3" />
+			<div class="text-center">❤️ Inspired by:</div>
+			<div class="grid grid-cols-2 gap-2">
 				{#each inspired as item, idx}
-					<div class="text-left" class:col-start-2={idx % 2 == 0}>
-						<NavLink
-							icon=""
-							content={item}
-							href={addhttp(item)}
-							target="_blank"
-							rel="external nofollow noreferrer"
-						/>
-					</div>
+					<NavLink
+						icon=""
+						content={item}
+						href={addhttp(item)}
+						target="_blank"
+						rel="external nofollow noreferrer"
+					/>
 				{/each}
-				<div class="mt-4 md:col-start-2 text-center md:text-left col-start-1 col-span-3 text-sm">
-					And shout out for so many beautiful personal portfolio out there.
-				</div>
+			</div>
+			<div class="mt-4 text-center text-sm">
+				And shout out for so many beautiful personal portfolio out there.
 			</div>
 		</div>
 	</div>

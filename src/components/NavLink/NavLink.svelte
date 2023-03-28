@@ -9,7 +9,7 @@
 </script>
 
 <Hoverable let:hovering={active}>
-	<a {href} class="group flex items-center" class:active {target} {rel}>
+	<a {href} class="group flex items-center justify-center" class:active {target} {rel}>
 		<div class="relative overflow-hidden text-sm font-medium">
 			<div
 				class="group-[.active]:translate-y-full group-[.active]:duration-[600ms] duration-[0ms] ease-[cubic-bezier(0.42,0,0.33,1)]"

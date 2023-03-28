@@ -11,29 +11,32 @@
 </svelte:head>
 
 <AppBar
-	class="container mx-auto fixed z-10 top-0 left-0 right-0 h-[80px] justify-center"
+	class="container mx-auto fixed z-10 top-0 left-0 right-0 h-[64px] justify-center"
 	background="bg-surface-100-900-token"
 	shadow="shadow-none"
+	gap="gap-1"
 >
 	<svelte:fragment slot="lead">
 		<a href="/">
 			<div class="uppercase font-bold leading-[1] text-sm text-center">
-				<div>Quochuy.dev</div>
+				<div>
+					<span class="sr-only sm:not-sr-only">Quoc</span>Huy.dev
+				</div>
 			</div>
 		</a>
 	</svelte:fragment>
+	<ul class="flex gap-1 sm:gap-5 justify-end">
+		<li>
+			<NavLink content="About" href="#about" icon="🙋‍♂️" />
+		</li>
+		<li>
+			<NavLink content="Projects" href="#projects" icon="🧑‍💻" />
+		</li>
+		<li>
+			<NavLink content="Contact" href="#contact" icon="🙌" />
+		</li>
+	</ul>
 	<svelte:fragment slot="trail">
-		<ul class="flex gap-5">
-			<li>
-				<NavLink content="About" href="#about" icon="🙋‍♂️" />
-			</li>
-			<li>
-				<NavLink content="Projects" href="#projects" icon="🧑‍💻" />
-			</li>
-			<li>
-				<NavLink content="Contact" href="#contact" icon="🙌" />
-			</li>
-		</ul>
 		<LightSwitch />
 	</svelte:fragment>
 	<div class="header-blur w-[200vw] -left-1/2" />
