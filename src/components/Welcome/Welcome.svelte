@@ -136,25 +136,25 @@
 			<div class="relative w-full h-full">
 				<div
 					id="fs-text"
-					class="origin-center opacity-0 w-[250px] h-[250px] absolute top-1/2 left-1/2"
+					class="origin-center opacity-0 w-[100px] h-[100px] md:w-[250px] md:h-[250px] absolute top-1/2 left-1/2"
 				>
 					<CircleText fillColor="fill-amber-600" />
 				</div>
 				<div
 					id="sc-text"
-					class="origin-center opacity-0 w-[550px] h-[550px] absolute top-1/2 left-1/2"
+					class="origin-center opacity-0 w-[200px] h-[200px] md:w-[550px] md:h-[550px] absolute top-1/2 left-1/2"
 				>
 					<CircleText />
 				</div>
 				<div
 					id="tr-text"
-					class="origin-center opacity-0 w-[950px] h-[950px] absolute top-1/2 left-1/2"
+					class="origin-center opacity-0 w-[300px] h-[300px] md:w-[950px] md:h-[950px] absolute top-1/2 left-1/2"
 				>
 					<CircleText fillColor="fill-amber-600" />
 				</div>
 				<div
 					id="qd-text"
-					class="origin-center opacity-0 w-[1500px] h-[1500px] absolute top-1/2 left-1/2"
+					class="origin-center opacity-0 w-[500px] h-[500px] md:w-[1500px] md:h-[1500px] absolute top-1/2 left-1/2"
 				>
 					<CircleText />
 				</div>

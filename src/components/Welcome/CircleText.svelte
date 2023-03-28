@@ -1,5 +1,5 @@
 <script>
-	export let fillColor = 'fill-white';
+	export let fillColor = 'fill-black dark:fill-white';
 </script>
 
 <svg
@@ -19,9 +19,9 @@
   "
 		fill="none"
 	/>
-	<text dy="1" font-size="40" textLength="1050" font-weight="bolder">
-		<textPath id="multiarcText" href="#multiarc" aria-label="Smashing" class={fillColor}>
-			SMASHING MAGAZINE SMASHING MAGAZINE
+	<text dy="1" font-size="40" textLength="300%" font-weight="bolder">
+		<textPath id="multiarcText" href="#multiarc" aria-label="Portfolio" class={fillColor}>
+			WEB PORTFOLIO WEB PORTFOLIO WEB PORTFOLIO WEB PORTFOLIO
 		</textPath>
 	</text>
 </svg>
