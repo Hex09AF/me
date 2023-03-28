@@ -86,10 +86,11 @@
 			Bodies.circle(randBetween(0, width), 0, width / 30, {
 				restitution: 0.5,
 				render: {
+					fillStyle: 'red',
 					sprite: {
 						texture: tech.img,
-						xScale: width / 30 / 100,
-						yScale: width / 30 / 100
+						xScale: width / 2500,
+						yScale: width / 2500
 					}
 				}
 			})
