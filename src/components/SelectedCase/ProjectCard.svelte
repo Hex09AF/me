@@ -4,26 +4,30 @@
 	export let description: string = '';
 	export let marqueeBg: string = '';
 	export let onDetail: any;
-	const joinRole = role.join(' • ');
-	const marqueeRole = new Array(2)
-		.fill(0)
-		.map(() => joinRole)
-		.join(' • ');
 </script>
 
-<div class={`p-10 bg-white text-black isolate min-h-[400px] h-full`}>
-	<h2 class="text-7xl uppercase mb-2">{title}</h2>
-	<div class="text-2xl mb-2 text-white">
-		<div class={`marquee absolute ${marqueeBg}`}>
+<div class={`p-8 md:p-10 bg-white text-black isolate min-h-[400px] h-full`}>
+	<h2 class="project-title text-5xl md:text-8xl uppercase mb-2">{title}</h2>
+
+	<div class="text-3xl mb-2 text-white">
+		<div class={`marquee -mx-8 md:-mx-10 py-2 ${marqueeBg}`}>
 			<div class="marquee-inner whitespace-pre">
-				<span class="marquee-left"> {marqueeRole} {' • '}</span>
-				<span class="marquee-right"> {marqueeRole} {' • '}</span>
+				<span class="marquee-c marquee-left">
+					{#each role as item}
+						<span class="marquee-i mx-2">{item}</span>
+					{/each}
+				</span>
+
+				<span class="marquee-c marquee-right">
+					{#each role as item}
+						<span class="marquee-i mx-2">{item}</span>
+					{/each}
+				</span>
 			</div>
 		</div>
 	</div>
-	<p class="mb-6 mt-12">
-		{description}
-	</p>
+
+	<p class="text-xl">{description}</p>
 	<!-- <button on:click={onDetail} class="btn variant-filled-primary btn-base btn-marquee">
 		<div class="btn-marquee-inner">
 			<span data-text="See the detail"> See the detail </span>
@@ -31,7 +35,11 @@
 	</button> -->
 </div>
 
-<style>
+<style lang="postcss">
+	.project-title {
+		font-family: 'Oswald', cursive;
+		font-weight: 600;
+	}
 	.btn-marquee:hover .btn-marquee-inner span:after {
 		opacity: 1;
 	}
@@ -70,19 +78,17 @@
 		position: relative;
 	}
 
-	.marquee .marquee-inner span {
+	.marquee .marquee-inner .marquee-c {
 		white-space: nowrap;
 		transform: translate3d(0, 0, 0);
 	}
-	.marquee .marquee-inner span.marquee-right {
-		transform: translate3d(0, 0, 0);
-
+	.marquee .marquee-inner .marquee-c.marquee-right {
 		animation-name: marquee_right;
 		animation-duration: 50s;
 		animation-iteration-count: infinite;
 		animation-timing-function: linear;
 	}
-	.marquee .marquee-inner span.marquee-left {
+	.marquee .marquee-inner .marquee-c.marquee-left {
 		animation-name: marquee_left;
 		animation-duration: 50s;
 		animation-iteration-count: infinite;
@@ -103,5 +109,16 @@
 		100% {
 			transform: translate3d(-100%, 0, 0);
 		}
+	}
+	.marquee-c {
+		font-weight: 500;
+	}
+	.marquee-left .marquee-i:nth-child(odd) {
+		color: transparent;
+		-webkit-text-stroke: 1.5px black;
+	}
+	.marquee-right .marquee-i:nth-child(even) {
+		color: transparent;
+		-webkit-text-stroke: 1.5px black;
 	}
 </style>

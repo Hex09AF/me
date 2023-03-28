@@ -29,8 +29,7 @@
 				'Race condition',
 				'Rabit hole'
 			],
-			description:
-				"Whether you're ordering food for two or hosting a party for thousands people, you will always find the best menu and service that's right for you.",
+			description: 'Ordering food for two or hosting a party for thousands people.',
 			bg: 'bg-red-500',
 			txt: 'text-red-400',
 			projectImg: foodeliveImg
@@ -55,7 +54,7 @@
 				'Nginx',
 				'Deploy'
 			],
-			description: 'Spend wise time to get the voucher you deserve no matter where you are',
+			description: 'An Admin CMS for manager vendors and vouchers.',
 			bg: 'bg-sky-500',
 			txt: 'text-sky-400',
 			projectImg: devouchImg
@@ -76,7 +75,7 @@
 				'HTTP/HTTPS',
 				'Heroku'
 			],
-			description: 'Where we can train our mind. Play with friends. May the force be with you!',
+			description: 'A game where we can train our mind and have fun with friends.',
 			bg: 'bg-amber-500',
 			txt: 'text-amber-400',
 			projectImg: sudokuImg
@@ -100,7 +99,7 @@
 				'Husky Lint Prettier',
 				'Code splitting'
 			],
-			description: 'A platform built in company that have courses to level up your skill',
+			description: 'Learning app that help self-learning business people.',
 			bg: 'bg-lime-500',
 			txt: 'text-lime-400',
 			projectImg: elearningImg

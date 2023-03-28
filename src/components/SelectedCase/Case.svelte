@@ -17,7 +17,7 @@
 	<div
 		class:lg:col-start-1={isOdd}
 		class:lg:col-start-2={!isOdd}
-		class={`${item.bg} grow row-start-1 `}
+		class={`${item.bg} grow row-start-1 relative z-[5]`}
 	>
 		<div
 			class="h-full bg-cover bg-no-repeat bg-center"
