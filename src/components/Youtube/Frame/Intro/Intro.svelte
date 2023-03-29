@@ -11,7 +11,8 @@
 	</div>
 	<div class="revert-text mt-2 md:mt-6">
 		<p class="block">
-			My name's <span class="text-xl md:text-3xl font-bold">Huy</span>, a web developer from Vietnam
+			My name is <span class="text-xl md:text-3xl font-bold">Quoc Huy</span>, passionate about
+			developing quick and secure websites.
 		</p>
 	</div>
 	<div class="absolute bottom-[45px] md:bottom-[60px] right-0 revert-text">

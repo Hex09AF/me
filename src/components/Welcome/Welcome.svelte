@@ -1,15 +1,12 @@
 <script lang="ts">
 	import gsap from 'gsap';
 	import { onMount } from 'svelte';
-	import CircleText from './CircleText.svelte';
-	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 	import { frameSecond } from '../../store/frame/frame';
+	import CircleText from './CircleText.svelte';
 
 	let tl: gsap.core.Timeline;
 
 	onMount(() => {
-		gsap.registerPlugin(ScrollTrigger);
-
 		const inWelcome = 1;
 		const outWelcome = 1;
 		const inName = 1;
@@ -91,16 +88,6 @@
 				'<'
 			)
 			.to('#circle-text', { padding: 0, duration: outText }, '<');
-
-		// ScrollTrigger.create({
-		// 	animation: tl,
-		// 	scroller: '#scrollWrapper',
-		// 	trigger: '#welcome-wrapper',
-		// 	start: 'top top',
-		// 	end: '+=10000',
-		// 	scrub: 1,
-		// 	pin: true
-		// });
 	});
 
 	$: {

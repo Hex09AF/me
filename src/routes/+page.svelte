@@ -10,20 +10,6 @@
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
 
-		// const eles = gsap.utils.toArray('.content-item');
-		// eles.forEach((panel, i) => {
-		// 	if (i != eles.length - 1) {
-		// 		ScrollTrigger.create({
-		// 			trigger: panel,
-		// 			start: '-=80 top',
-		// 			end: '+=' + panel.offsetHeight * (eles.length - i - 1),
-		// 			scrub: 1,
-		// 			pin: true,
-		// 			pinSpacing: false
-		// 		});
-		// 	}
-		// });
-
 		gsap.to('.header-blur', {
 			scrollTrigger: {
 				trigger: '.header-blur',

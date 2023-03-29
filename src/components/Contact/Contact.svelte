@@ -5,13 +5,13 @@
 
 <section
 	id="contact"
-	class="contact-c h-screen grid place-content-center grid-cols-[1fr_2fr] gap-12"
+	class="contact-c h-screen grid place-content-center grid-rows-[2fr_2.5fr] md:grid-rows-none md:grid-cols-[1fr_2fr] gap-4 md:gap-12"
 >
-	<div class="contact-image-c relative h-50%">
+	<div class="contact-image-c relative md:h-50%">
 		<img
 			loading="lazy"
 			id="contact-gmail-image"
-			class="absolute w-[90%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+			class="absolute w-1/2 md:w-[90%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 			src={Gmail}
 			alt="Gmail"
 		/>
@@ -24,11 +24,11 @@
 		/>
 	</div>
 
-	<div class="mb-5 h-screen flex flex-col justify-center">
-		<div class="text-3xl md:text-9xl uppercase font-medium">
-			<div class="text-red-500">Let's</div>
+	<div class="mb-5 h-full flex flex-col md:justify-center">
+		<div class="text-6xl md:text-9xl uppercase font-medium">
+			<div class="text-5xl text-red-500">Let's</div>
 			<div class="text-create">Create</div>
-			<div>Together</div>
+			<div class="text-5xl">Together</div>
 		</div>
 		<div class="mt-4">
 			Email me
@@ -37,11 +37,16 @@
 				href="mailto:lsqhuy@gmail.com?subject=🤝%20Project%20info.%20Let's%20talk"
 				class="unstyled gmail"
 			>
-				<span class="text-draw">lsqhuy@gmail.com</span>
+				<span class="text-draw underline">lsqhuy@gmail.com</span>
 			</a>
 			or find me on
-			<a id="contact-github" href="https://github.com/Hex09AF" class="unstyled github">
-				<span class="text-draw"> github/hex09af </span>
+			<a
+				id="contact-github"
+				target="_blank"
+				href="https://github.com/Hex09AF"
+				class="unstyled github"
+			>
+				<span class="text-draw underline"> github/hex09af </span>
 			</a>
 		</div>
 	</div>
@@ -83,15 +88,17 @@
 	}
 
 	.contact-image-c {
-		img {
+		img#contact-github-image {
 			visibility: hidden;
 		}
 	}
-	.contact-c:has(#contact-gmail:hover) #contact-gmail-image {
-		visibility: visible;
-	}
 
-	.contact-c:has(#contact-github:hover) #contact-github-image {
-		visibility: visible;
+	.contact-c:has(#contact-github:hover, #contact-github:focus) {
+		#contact-gmail-image {
+			visibility: hidden;
+		}
+		#contact-github-image {
+			visibility: visible;
+		}
 	}
 </style>

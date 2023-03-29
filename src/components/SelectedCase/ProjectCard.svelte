@@ -6,7 +6,7 @@
 	export let onDetail: any;
 </script>
 
-<div class={`p-8 md:p-10 bg-white text-black isolate min-h-[400px] h-full`}>
+<div class={`project-card p-8 md:p-10 bg-white text-black isolate h-full`}>
 	<div class="playful-c relative" aria-haspopup="true" role="button" tabindex="0">
 		<div class="playful absolute text-lg font-bold" aria-label="Name">
 			<span aria-hidden="true">N</span>
@@ -19,7 +19,7 @@
 		</h2>
 	</div>
 
-	<div class="playful-c relative mt-6" aria-haspopup="true" role="button" tabindex="0">
+	<div class="playful-c relative mt-5 md:mt-6" aria-haspopup="true" role="button" tabindex="0">
 		<div class="playful absolute right-0 top-0 text-lg font-bold" aria-label="Keywords">
 			<span aria-hidden="true">K</span>
 			<span aria-hidden="true">e</span>
@@ -30,8 +30,8 @@
 			<span aria-hidden="true">d</span>
 			<span aria-hidden="true">s</span>
 		</div>
-		<div class="text-3xl mb-2 text-white bg-white">
-			<div class={`marquee -mx-8 md:-mx-10 py-2 ${marqueeBg}`}>
+		<div class="text-2xl md:text-3xl mb-2 text-white bg-white">
+			<div class={`marquee -mx-8 md:-mx-10 py-1 md:py-2 ${marqueeBg}`}>
 				<div class="marquee-inner whitespace-pre">
 					<span class="marquee-c marquee-left">
 						{#each role as item}
@@ -49,7 +49,7 @@
 		</div>
 	</div>
 
-	<div class="playful-c relative mt-6" aria-haspopup="true" role="button" tabindex="0">
+	<div class="playful-c relative mt-5 md:mt-6" aria-haspopup="true" role="button" tabindex="0">
 		<div class="playful absolute top-0 text-lg font-bold" aria-label="Description">
 			<span aria-hidden="true">D</span>
 			<span aria-hidden="true">e</span>
@@ -63,21 +63,18 @@
 			<span aria-hidden="true">o</span>
 			<span aria-hidden="true">n</span>
 		</div>
-		<p class="text-xl bg-white">{description}</p>
+		<p class="text-base md:text-xl bg-white">{description}</p>
 	</div>
-
-	<!-- <button on:click={onDetail} class="btn variant-filled-primary btn-base btn-marquee">
-		<div class="btn-marquee-inner">
-			<span data-text="See the detail"> See the detail </span>
-		</div>
-	</button> -->
 </div>
 
 <style lang="postcss">
+	.playful-c {
+		cursor: auto;
+	}
 	.playful-c:active,
 	.playful-c:hover {
 		.playful {
-			transform: translateY(-100%);
+			transform: translateY(-80%);
 		}
 	}
 

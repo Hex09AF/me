@@ -5,7 +5,7 @@
 	let h: number;
 </script>
 
-<section id="about" class="pt-[80px] h-screen">
+<section id="about" class="pt-[80px]">
 	<div class="live-container flex-col lg:flex-row max-h-full">
 		<div bind:clientHeight={h} class="lg:flex-[2.9]">
 			<Media />
