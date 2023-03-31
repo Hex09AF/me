@@ -107,7 +107,7 @@
 	];
 </script>
 
-<section id="projects" class="my-10">
+<section id="projects" class="py-[60px]">
 	{#each listProject as item, idx}
 		{@const isOdd = idx % 2 == 1}
 		<Case {isOdd} {item} />
